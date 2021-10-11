@@ -1,0 +1,26 @@
+.home-section-a {
+  height: 70vh;
+  text-align: center;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .home-section-a-heading {
+    font-size: 40px;
+    font-weight: 800;
+    max-width: 408px;
+  }
+  .home-section-a-content {
+    font-size: 20px;
+    font-size: 600;
+    max-width: 500px;
+  }
+  .home-section-a-button {
+    border: 2px;
+    background-color: transparent;
+    padding: 5px 15px;
+    font-size: 30px;
+    font-weight: 700;
+  }
+}

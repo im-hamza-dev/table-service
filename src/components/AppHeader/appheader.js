@@ -9,7 +9,7 @@ import logo from "../../assets/images/icon.png";
 const AppHeader = () => (
   <Navbar className="nav-bar" expand="md" collapseOnSelect>
     <Container fluid>
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand className="nav-bar-logo" as={Link} to="/">
         tableservice
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

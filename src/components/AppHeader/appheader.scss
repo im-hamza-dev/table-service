@@ -1,8 +1,13 @@
 .nav-bar {
-  background: #ffffff;
-  background: #ffffff;
+  background: linear-gradient(90deg, #384af6, #8826af);
+
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 0 !important;
+  padding: 10px 20px !important;
+  .nav-bar-logo {
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+  }
   .image {
     margin-bottom: 0;
     max-width: inherit !important;
@@ -10,7 +15,7 @@
   }
   .navbar-toggler {
     border-color: transparent !important;
-    color: #567c91 !important;
+    color: white !important;
   }
   .nav-link.button-mobile {
     display: none;
@@ -48,7 +53,7 @@
 .nav-buttons {
   a {
     margin-right: 20px;
-    color: rgba(0, 0, 0, 0.5);
+    color: white !important;
     font-weight: 600;
     font-size: 16px;
   }
@@ -58,9 +63,10 @@
 }
 .login-button {
   color: #fff !important;
-  background: linear-gradient(90deg, #558ba2 0%, #51aaab 100%);
   border-radius: 35px !important;
-  padding: 5px 30px !important;
-  align-self: center;
-  font-weight: bold;
+  padding: 1px 17px !important;
+  border: 3px solid white;
+  background-color: transparent;
+  font-size: 20px !important;
+  font-weight: 800 !important;
 }

@@ -10,91 +10,76 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-row-1">
         <div className="footer-item">
-          <div className="footer-item-heading">CONTACT US</div>
-          <div className="footer-item-text">287A Outram Road,</div>
-          <div className="footer-item-text">Singapore 169070</div>
-          <div className="footer-item-text">chat@noodlefactory.ai</div>
+          <div className="footer-item-heading">
+            Get setup and running within 30 mins...
+          </div>
+          <div className="footer-item-text">
+            You are 30 minutes away from having the fastest, easiest to use
+            order and pay platform in the world.
+          </div>
+          <button className="footer-item-button">Join Now</button>
           <div className="footer-item-social">
-            <div className="footer-item-heading">FOLLOW US ON</div>
             <div className="footer-icons-parent">
-              {
-                <a href="https://www.linkedin.com/">
-                  <img src={Linkedin} alt="linkedin" />
-                </a>
-              }
-              {
-                <a href="https://www.facebook.com/">
-                  <img src={Facebook} alt="facebook" />
-                </a>
-              }
-              {
-                <a href="https://www.instagram.com/">
-                  <img src={Instagram} alt="instagram" />
-                </a>
-              }
-              {
-                <a href="https://twitter.com/?lang=en">
-                  <img src={Twitter} alt="twitter" />
-                </a>
-              }
+              <a href="https://www.facebook.com/">
+                <img src={Facebook} alt="facebook" />
+              </a>
+
+              <a href="https://www.instagram.com/">
+                <img src={Instagram} alt="instagram" />
+              </a>
+
+              <a href="https://www.linkedin.com/">
+                <img src={Linkedin} alt="linkedin" />
+              </a>
+
+              <a href="https://twitter.com/?lang=en">
+                <img src={Twitter} alt="twitter" />
+              </a>
             </div>
           </div>
         </div>
         <div className="footer-item">
-          <div className="footer-item-heading">HOW IT WORKS</div>
+          <div className="footer-item-heading">Pages</div>
           <a className="footer-item-text" href="/how-it-works#aipowered">
-            AI-Powered
+            Who we are
           </a>
           <a className="footer-item-text" href="/how-it-works#features">
-            Features
+            Our Team
           </a>
           <a className="footer-item-text" href="/how-it-works#pricing">
-            Pricing
+            How It Works
           </a>
           <a className="footer-item-text" href="/how-it-works#faq">
-            FAQs
-          </a>
-        </div>
-        <div className="footer-item">
-          <div className="footer-item-heading">USE CASES</div>
-          <a className="footer-item-text" href="/use-cases#education">
-            Education
-          </a>
-          <a className="footer-item-text" href="/use-cases#adult-learning">
-            Adult Learning
-          </a>
-        </div>
-        <div className="footer-item">
-          <div className="footer-item-heading">ABOUT US</div>
-          <a className="footer-item-text" href="/about-us#our-origin-story">
-            Our Origin Story
-          </a>
-          <a className="footer-item-text" href="/about-us#meet-the-team">
-            Meet The Team
-          </a>
-          <a className="footer-item-text">In the News</a>
-          <a className="footer-item-text" href="/about-us#work-with-us">
-            Work with Us
-          </a>
-        </div>
-        <div className="footer-item">
-          <div className="footer-item-heading">RESOURCES</div>
-          <a className="footer-item-text" href="/resources">
             Blog
           </a>
-          <a className="footer-item-text" href="/resources">
-            Media Gallery
+          <a className="footer-item-text" href="/how-it-works#faq">
+            Features
           </a>
-          <a className="footer-item-text" href="/resources">
-            Past Webinars
+          <a className="footer-item-text" href="/how-it-works#faq">
+            Pricing
           </a>
         </div>
         <div className="footer-item">
-          <div className="footer-item-heading">INFORMATION</div>
-          <div className="footer-item-text">Privacy Policy</div>
-          <div className="footer-item-text">End User License Agreement</div>
-          <div className="footer-item-text">Terms of Service</div>
+          <div className="footer-item-heading">Contact Us</div>
+          <div className="footer-item-text">
+            <div>Table Service App Ltd</div>
+            <div>t: 0800 048 5790</div>
+            <div>e: hello@tablesserviceapp.com</div>
+            <br />
+            <div>Company No. 13310818</div>
+            <div>Registered Address: 6th Floor</div>
+            <div>49 Peter Street, Manchester</div>
+            <div>United Kingdom, M2 3NG</div>
+          </div>
         </div>
+      </div>
+      <hr />
+      <div className="footer-row-2">
+        <div className="footer-row-2-sub-flex">
+          <div>Terms of Use</div> |<div>Terms of Service</div> |
+          <div>Privacy Policy</div>
+        </div>
+        <div>Table Service App Limited</div>
       </div>
     </div>
   );
