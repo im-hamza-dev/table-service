@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import logo from "../../assets/images/icon.png";
 
 const AppHeader = () => (
   <Navbar className="nav-bar" expand="md" collapseOnSelect>
@@ -18,7 +17,7 @@ const AppHeader = () => (
         id="responsive-navbar-nav"
       >
         <Nav className="nav-buttons ml-auto">
-          <Nav.Link as={Link} to="/our-approach">
+          <Nav.Link as={Link} to="/">
             Our Approach
           </Nav.Link>
           <Nav.Link as={Link} to="/features">

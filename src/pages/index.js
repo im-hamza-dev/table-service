@@ -23,6 +23,7 @@ const IndexPage = () => {
         content="Introduction to the brand, our product, the speed and who are
         customers are , pubs, bars, resturants, hotels, takeaways etc.."
         sideImg={ImgSide}
+        button
       />
     </Layout>
   );

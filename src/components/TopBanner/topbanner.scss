@@ -19,7 +19,7 @@
       font-size: 79px;
       line-height: 88px;
       font-weight: 800;
-      max-width: 850px;
+      max-width: 1200px;
       color: white;
       .yellow {
         color: #ffb300 !important;
@@ -29,7 +29,7 @@
       font-size: 37px;
       line-height: 49px;
       font-weight: 600;
-      max-width: 660px;
+      max-width: 900px;
       color: white;
       margin-top: 5px;
     }
@@ -43,6 +43,11 @@
       border: 4px solid white;
       border-radius: 34px;
       margin-top: 35px;
+      transition: 0.2s;
+      &:hover {
+        color: rgb(48, 79, 254, 0.79);
+        background-color: white;
+      }
     }
   }
 }
