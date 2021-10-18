@@ -1,0 +1,96 @@
+.tabsservices {
+  width: 100%;
+  min-height: 990px;
+  background-color: #304ffe;
+  padding: 100px;
+  text-align: center;
+
+  .tabsservices-heading {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 61px;
+    color: white;
+    max-width: 600px;
+    margin: 0px auto;
+  }
+  .tabsservices-tab-parent {
+    border-bottom: none;
+    text-align: center;
+    justify-content: center;
+    margin: 65px;
+
+    .nav-item {
+      .nav-link {
+        margin: 0px 10px;
+        color: white;
+        background: transparent;
+        font-size: 30px;
+        line-height: 49px;
+        font-weight: 500;
+        border: none !important;
+
+        &:hover {
+          border: none !important;
+          border-bottom: 4px solid #ffb300 !important;
+        }
+        &.active {
+          border: none;
+          border-bottom: 4px solid #ffb300 !important;
+        }
+      }
+    }
+  }
+  .tabsservices-table {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    .tabsservices-table-left {
+      text-align: left;
+      margin-right: 100px;
+      .tableservices-table-heading {
+        font-size: 44px;
+        font-weight: 800;
+        line-height: 59px;
+        max-width: 650px;
+      }
+      .tableservices-table-content {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 41px;
+        max-width: 650px;
+        margin-top: 25px;
+      }
+      .tableservices-table-button {
+        margin-top: 25px;
+        border: 2px;
+        background-color: transparent;
+        padding: 5px 50px;
+        font-size: 30px;
+        line-height: 51px;
+        font-weight: 800;
+        color: #d8d8d8;
+        border: 4px solid white;
+        border-radius: 34px;
+        transition: 0.2s;
+        &:hover {
+          background-color: white;
+          color: #304ffe;
+        }
+      }
+    }
+    .tabsservices-table-right {
+      text-align: left;
+      div {
+        font-size: 24px;
+        line-height: 41px;
+        font-weight: 600;
+        margin-bottom: 21px;
+        img {
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+}

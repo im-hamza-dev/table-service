@@ -49,22 +49,22 @@ const Footer = () => {
             </div>
             <div className="footer-item">
               <div className="footer-item-heading">Pages</div>
-              <a className="footer-item-text" href="/how-it-works#aipowered">
+              <a className="footer-item-text" href="/">
                 Who we are
               </a>
-              <a className="footer-item-text" href="/how-it-works#features">
+              <a className="footer-item-text" href="/">
                 Our Team
               </a>
-              <a className="footer-item-text" href="/how-it-works#pricing">
+              <a className="footer-item-text" href="/">
                 How It Works
               </a>
-              <a className="footer-item-text" href="/how-it-works#faq">
+              <a className="footer-item-text" href="/">
                 Blog
               </a>
-              <a className="footer-item-text" href="/how-it-works#faq">
+              <a className="footer-item-text" href="/">
                 Features
               </a>
-              <a className="footer-item-text" href="/how-it-works#faq">
+              <a className="footer-item-text" href="/">
                 Pricing
               </a>
             </div>

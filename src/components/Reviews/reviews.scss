@@ -1,0 +1,43 @@
+.reviews-parent {
+  width: 100%;
+  min-height: 990px;
+  background-color: #fafafb;
+  padding: 100px;
+  text-align: center;
+
+  .reviews-heading {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 61px;
+    color: #d8d8d8;
+    max-width: 750px;
+    margin: 0px auto;
+  }
+  .reviews-item {
+    align-items: center;
+    .reviews-item-content {
+      font-size: 34px;
+      line-height: 40px;
+      font-weight: 600;
+      color: #1c2530;
+      max-width: 980px;
+      margin: 70px auto 0px;
+    }
+    .reviews-item-name {
+      font-size: 32px;
+      line-height: 37px;
+      font-weight: 800;
+      color: #1c2530;
+      max-width: 980px;
+      margin: 30px auto 0px;
+    }
+    .reviews-item-role {
+      font-size: 32px;
+      line-height: 37px;
+      font-weight: 800;
+      color: #1c2530;
+      max-width: 980px;
+      margin: 10px auto 0px;
+    }
+  }
+}

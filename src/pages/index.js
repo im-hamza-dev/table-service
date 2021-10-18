@@ -4,6 +4,8 @@ import ImgSide from "../assets/images/home-sectionb.png";
 import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
+import TabsServices from "../components/TabsServices/tabsservices";
+import Reviews from "../components/Reviews/reviews";
 
 const IndexPage = () => {
   return (
@@ -25,6 +27,8 @@ const IndexPage = () => {
         sideImg={ImgSide}
         button
       />
+      <TabsServices />
+      <Reviews />
     </Layout>
   );
 };
