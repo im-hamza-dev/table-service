@@ -1,11 +1,13 @@
 import * as React from "react";
 import "./index.scss";
 import ImgSide from "../assets/images/home-sectionb.png";
+import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
 import TabsServices from "../components/TabsServices/tabsservices";
 import Reviews from "../components/Reviews/reviews";
+import BlogPreview from "../components/BlogPreview/blogpreview";
 
 const IndexPage = () => {
   return (
@@ -29,6 +31,44 @@ const IndexPage = () => {
       />
       <TabsServices />
       <Reviews />
+      <div className="home-section-blog-parent">
+        <div className="home-section-blog-heading">Latest from the Blog</div>
+        <div className="home-section-blog-flex">
+          <div className="home-section-blog-item">
+            <BlogPreview
+              post={{
+                heroImage: ImgBlog,
+                title: "Customers return visits based on speed of ordering",
+                subtitle:
+                  "People are making choices on what venues to visits based on the speed of service",
+              }}
+            />
+          </div>
+          <div className="home-section-blog-item">
+            <BlogPreview
+              post={{
+                heroImage: ImgBlog,
+                title: "Customers return visits based on speed of ordering",
+                subtitle:
+                  "People are making choices on what venues to visits based on the speed of service",
+              }}
+            />
+          </div>
+          <div className="home-section-blog-item">
+            <BlogPreview
+              post={{
+                heroImage: ImgBlog,
+                title: "Customers return visits based on speed of ordering",
+                subtitle:
+                  "People are making choices on what venues to visits based on the speed of service",
+              }}
+            />
+          </div>
+        </div>
+        <a href="/blog" className="home-section-blog-button">
+          VIEW ALL
+        </a>
+      </div>
     </Layout>
   );
 };

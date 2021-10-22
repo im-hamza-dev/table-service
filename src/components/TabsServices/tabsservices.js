@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./tabsservices.scss";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Tick from "../../assets/svg/tick.svg";
-import BgIcon from "../../assets/svg/tabservicebg.svg";
 
 const TabsServices = (props) => {
   return (
