@@ -23,23 +23,23 @@ const AppHeader = () => (
           <Nav.Link as={Link} to="/features">
             Features
           </Nav.Link>
-          <Nav.Link as={Link} to="/how-it-works">
+          <Nav.Link as={Link} to="/">
             How It Works
           </Nav.Link>
-          <Nav.Link as={Link} to="/pricing">
+          <Nav.Link as={Link} to="/">
             Pricing
           </Nav.Link>
-          <Nav.Link as={Link} to="/help">
+          <Nav.Link as={Link} to="/">
             Help
           </Nav.Link>
 
-          <Nav.Link eventKey={2} as={Link} to="/pilot" className="login-button">
+          <Nav.Link eventKey={2} as={Link} to="/" className="login-button">
             Join Now
           </Nav.Link>
           <Nav.Link
             eventKey={3}
             as={Link}
-            to="/pilot"
+            to="/"
             className="login-button--mobile"
           >
             Join Now

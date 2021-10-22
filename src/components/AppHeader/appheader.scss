@@ -35,7 +35,6 @@
   }
   @media (max-width: 576px) {
     .navbar-nav {
-      background: linear-gradient(180deg, #eeeeee 0%, #fafafa 100%);
       a {
         padding-left: 20px;
         padding-right: 20px;
@@ -69,4 +68,10 @@
   background-color: transparent;
   font-size: 20px !important;
   font-weight: 800 !important;
+  text-align: center;
+  transition: 0.2s;
+  &:hover {
+    color: #8826af !important;
+    background-color: white;
+  }
 }

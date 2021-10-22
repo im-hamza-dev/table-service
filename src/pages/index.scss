@@ -39,3 +39,15 @@
     }
   }
 }
+@media (max-width: 900px) {
+  .home-section-blog-parent {
+    padding: 100px 20px;
+    .home-section-blog-heading {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .home-section-blog-button {
+      font-size: 20px;
+    }
+  }
+}

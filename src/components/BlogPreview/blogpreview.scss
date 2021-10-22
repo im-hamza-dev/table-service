@@ -38,7 +38,6 @@ $mobile: 576px;
   }
   @media (max-width: $mobile) {
     display: flex !important;
-    flex-direction: row !important;
     .img {
       order: 2;
       flex: 0 0 90px;
