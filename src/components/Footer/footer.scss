@@ -1,11 +1,13 @@
+@import "../../assets/scss/variables.scss";
+
 .footer-parent {
   width: 100%;
   min-height: 300px;
-  background: linear-gradient(90deg, #384af6, #8826af);
+  background: $bg-linear;
   margin-top: 30px;
   .footer {
     padding: 50px 20px;
-    color: white;
+    color: $white;
     .footer-row-1 {
       display: flex;
       align-items: flex-start;
@@ -60,10 +62,10 @@
       margin-bottom: 10px;
       font-size: 25px;
       font-weight: 600;
-      color: white !important;
+      color: $white !important;
     }
     .footer-item-button {
-      color: #fff !important;
+      color: $white !important;
       border-radius: 35px !important;
       padding: 1px 17px !important;
       border: 3px solid white;
@@ -73,8 +75,8 @@
       margin: 15px 0px;
       transition: 0.2s;
       &:hover {
-        color: #384af6 !important;
-        background-color: white;
+        color: $blue !important;
+        background-color: $white;
       }
     }
   }

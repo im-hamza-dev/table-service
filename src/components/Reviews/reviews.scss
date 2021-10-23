@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables.scss";
+
 .reviews-parent {
   width: 100%;
   min-height: 990px;
@@ -9,7 +11,7 @@
     font-size: 60px;
     font-weight: 800;
     line-height: 61px;
-    color: #d8d8d8;
+    color: $greyheading;
     max-width: 750px;
     margin: 0px auto;
   }
@@ -19,7 +21,7 @@
       font-size: 34px;
       line-height: 40px;
       font-weight: 600;
-      color: #1c2530;
+      color: $blackishText;
       max-width: 980px;
       margin: 70px auto 0px;
     }
@@ -27,7 +29,7 @@
       font-size: 32px;
       line-height: 37px;
       font-weight: 800;
-      color: #1c2530;
+      color: $blackishText;
       max-width: 980px;
       margin: 30px auto 0px;
     }
@@ -35,14 +37,15 @@
       font-size: 32px;
       line-height: 37px;
       font-weight: 800;
-      color: #1c2530;
+      color: $blackishText;
       max-width: 980px;
       margin: 10px auto 0px;
     }
   }
 }
+$breakpoint: 900px;
 
-@media (max-width: 900px) {
+@media (max-width: $breakpoint) {
   .reviews-parent {
     padding: 100px 20px;
 
