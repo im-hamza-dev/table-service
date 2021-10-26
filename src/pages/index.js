@@ -8,6 +8,7 @@ import ContentRow from "../components/ContentRow/contentrow";
 import TabsServices from "../components/TabsServices/tabsservices";
 import Reviews from "../components/Reviews/reviews";
 import BlogPreview from "../components/BlogPreview/blogpreview";
+import TryForm from "../components/TryForm/tryform";
 
 const IndexPage = () => {
   return (
@@ -69,6 +70,7 @@ const IndexPage = () => {
           VIEW ALL
         </a>
       </div>
+      <TryForm />
     </Layout>
   );
 };

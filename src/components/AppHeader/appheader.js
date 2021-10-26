@@ -20,10 +20,10 @@ const AppHeader = () => (
           <Nav.Link as={Link} to="/">
             Our Approach
           </Nav.Link>
-          <Nav.Link as={Link} to="/features">
+          <Nav.Link as={Link} to="/content-page-1">
             Features
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/content-page-2">
             How It Works
           </Nav.Link>
           <Nav.Link as={Link} to="/">

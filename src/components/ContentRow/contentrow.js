@@ -8,7 +8,11 @@ const ContentRow = (props) => {
         className={`content-row-flex ${props.right ? "right" : ""}`}
         id={props.customId}
       >
-        <div className="content-row-text-parent">
+        <div
+          className={`content-row-text-parent ${
+            props.sideImg ? "" : "only-text"
+          }`}
+        >
           <div>
             <div
               className="content-row-heading"
@@ -23,9 +27,11 @@ const ContentRow = (props) => {
             <button className="content-row-button">Tell me more</button>
           )}
         </div>
-        <div className="content-row-img-parent">
-          <img src={props.sideImg} alt="side-img" />
-        </div>
+        {props.sideImg && (
+          <div className="content-row-img-parent">
+            <img src={props.sideImg} alt="side-img" />
+          </div>
+        )}
       </div>
     </div>
   );

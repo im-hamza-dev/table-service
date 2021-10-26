@@ -21,6 +21,15 @@
       align-items: flex-start;
       min-height: 460px;
       justify-content: space-between;
+      &.only-text {
+        margin-right: 0px;
+        .content-row-heading {
+          max-width: 800px;
+        }
+        .content-row-content {
+          max-width: 1490px;
+        }
+      }
 
       .content-row-heading {
         font-size: 60px;

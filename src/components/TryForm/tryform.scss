@@ -1,0 +1,101 @@
+@import "../../assets/scss/variables.scss";
+
+.try-form {
+  text-align: center;
+  .try-form-heading {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 61px;
+    color: $greyheading;
+    max-width: 850px;
+    margin: 0px auto 30px;
+  }
+  .try-form-desc {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 41px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0px auto 50px;
+  }
+  .form-parent {
+    align-items: center;
+    margin: 30px auto;
+    max-width: 1400px;
+    .form-group {
+      input {
+        width: 400px;
+        height: 35px;
+        background: $white !important;
+        border: none;
+        border-bottom: 1px solid #a9a9a9;
+        margin: 15px;
+        outline: none;
+      }
+      .full-width {
+        width: 830px;
+      }
+    }
+    .flex-input {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .form-submit-button {
+      background-color: transparent;
+      padding: 2px 25px;
+      font-size: 30px;
+      font-weight: 800;
+      color: $greybuttontext;
+      border: 4px solid $greybuttonbg;
+      border-radius: 34px;
+      transition: 0.2s;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 30px;
+      &:hover {
+        background-color: $greybuttonbg;
+        color: $white;
+      }
+    }
+  }
+}
+
+$breakpoint: 900px;
+
+@media (max-width: $breakpoint) {
+  .try-form {
+    text-align: center;
+    padding: 30px 20px;
+    .try-form-heading {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .try-form-desc {
+      font-size: 20px;
+      line-height: 34px;
+    }
+    .form-parent {
+      align-items: center;
+      margin: 30px auto;
+      max-width: 1400px;
+      .form-group {
+        input {
+          width: 300px;
+        }
+        .full-width {
+          width: 300px;
+        }
+      }
+      .flex-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .form-submit-button {
+        font-size: 20px;
+      }
+    }
+  }
+}
