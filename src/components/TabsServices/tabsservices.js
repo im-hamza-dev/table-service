@@ -63,7 +63,55 @@ const TabsServices = (props) => {
           </div>
         </Tab>
         <Tab eventKey="second" title="ROOM SERVICE">
-          Hii, I am 2nd tab content
+          <div className="tabsservices-table">
+            <div className="tabsservices-table-left">
+              <div className="tableservices-table-heading">
+                No Signup, No Downloads Super fast, Super simple
+              </div>
+              <div className="tableservices-table-content">
+                Changing the way people eat & drink with the worlds fastest
+                order and pay platform, creating a seemless order experience for
+                you and your customers. Table Service App has been made to
+                improve customer service and increase the average value of
+                orders.
+              </div>
+              <button className="tableservices-table-button">Join now</button>
+            </div>
+            <div className="tabsservices-table-right">
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                No upfront costs
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                High R.O.I per transaction
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Instant Menu, No Sign ups or downloads
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Use own payment provider
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Automatic Printing
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Real-Time Stock Control
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Sales & Reporting
+              </div>
+              <div>
+                <img src={Tick} alt="tick-icon" />
+                Fully Brandable
+              </div>
+            </div>
+          </div>
         </Tab>
         <Tab eventKey="third" title="TAKEAWAYS">
           Hii, I am 3rd tab content
