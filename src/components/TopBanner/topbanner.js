@@ -1,16 +1,35 @@
 import * as React from "react";
 import "./topbanner.scss";
+import MobileMockup from "../../assets/images/typeD-img.png";
 
-const TopBanner = (props) => {
+const TopBanner = ({ customId, heading, content, buttonText, type }) => {
   return (
-    <div className="top-banner" id={props.customId}>
-      <div className="top-banner-content-parent">
+    <div
+      className={`top-banner ${type === "home" ? "home" : ""} ${
+        type === "A" ? "content-A" : ""
+      } ${type === "B" ? "content-B" : ""} ${type === "C" ? "content-C" : ""}
+      ${type === "D" ? "content-D" : ""}      
+      `}
+      id={customId}
+    >
+      {type === "D" && (
+        <img
+          className="top-banner-typeD-mockup"
+          src={MobileMockup}
+          alt="mobile-mockup"
+        />
+      )}
+      <div
+        className={`top-banner-content-parent ${type === "D" ? "typeD" : ""}`}
+      >
         <div
           className="top-banner-heading"
-          dangerouslySetInnerHTML={{ __html: props.heading }}
+          dangerouslySetInnerHTML={{ __html: heading }}
         />
-        <div className="top-banner-content">{props.content}</div>
-        <button className="top-banner-button">{props.buttonText}</button>
+        <div className="top-banner-content">{content}</div>
+        {buttonText && (
+          <button className="top-banner-button">{buttonText}</button>
+        )}
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 257">

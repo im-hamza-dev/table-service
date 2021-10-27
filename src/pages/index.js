@@ -14,6 +14,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <TopBanner
+        type="home"
         customId="home-section-a"
         heading={
           'THE <span class="yellow">SNAPPIEST</span> ORDER & PAY APP IN THE WORLD'

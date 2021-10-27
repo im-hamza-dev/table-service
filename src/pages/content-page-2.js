@@ -9,6 +9,7 @@ const ContentPage2 = () => {
   return (
     <Layout>
       <TopBanner
+        type="B"
         customId="features-section-a"
         heading={
           'Look after your regular customer & make more <span class="yellow">profit</span>'
