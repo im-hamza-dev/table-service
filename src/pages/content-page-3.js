@@ -5,11 +5,11 @@ import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
 
-const ContentPage1 = () => {
+const ContentPage3 = () => {
   return (
     <Layout>
       <TopBanner
-        type="A"
+        type="C"
         customId="features-section-a"
         heading={
           'Look after your regular customer & make more <span class="yellow">profit</span>'
@@ -34,10 +34,9 @@ const ContentPage1 = () => {
         customId="features-section-b"
         heading={"Regular Customer"}
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/><br/> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        sideImg={ImgSide}
       />
     </Layout>
   );
 };
 
-export default ContentPage1;
+export default ContentPage3;

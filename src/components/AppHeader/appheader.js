@@ -1,6 +1,7 @@
 import React from "react";
 import "./appheader.scss";
 import { Link } from "gatsby";
+import logo from "../../assets/images/logo1.svg";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -9,7 +10,7 @@ const AppHeader = () => (
   <Navbar className="nav-bar" expand="md" collapseOnSelect>
     <Container fluid>
       <Navbar.Brand className="nav-bar-logo" as={Link} to="/">
-        tableservice
+        <img alt="tableservice" src={logo} className="image" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse
@@ -26,10 +27,10 @@ const AppHeader = () => (
           <Nav.Link as={Link} to="/content-page-2">
             How It Works
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/content-page-3">
             Pricing
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/content-page-4">
             Help
           </Nav.Link>
 

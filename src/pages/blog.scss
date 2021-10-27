@@ -13,6 +13,7 @@
     padding: 95px 10px;
     min-height: 254px;
     display: block;
+    padding: 10px;
     background-color: #fafafb;
   }
   .blog-highlighted {
@@ -77,6 +78,39 @@
     &:hover {
       background-color: $purple;
       color: $white;
+    }
+  }
+  $breakpoint: 900px;
+
+  @media (max-width: $breakpoint) {
+    .blog-heading {
+      font-size: 40px;
+      line-height: 50px;
+      padding: 50px 10px;
+      min-height: 154px;
+    }
+    .blog-highlighted {
+      .blog-highlighted-img-parent {
+        padding-top: 100px;
+        height: 200px;
+        svg {
+          margin-top: -80px;
+        }
+        img {
+          max-width: 300px;
+          border-radius: 24px;
+        }
+      }
+      .blog-highlighted-title {
+        font-size: 36px;
+        line-height: 44px;
+        margin: 30px 20px 20px;
+      }
+      .blog-highlighted-desc {
+        font-size: 20px;
+        line-height: 31px;
+        margin: 20px;
+      }
     }
   }
 }

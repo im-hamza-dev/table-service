@@ -12,7 +12,7 @@ const Blog = () => {
         <div className="blog-highlighted">
           <div className="blog-highlighted-img-parent">
             <img src={ImgBlog} alt="preview" />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 257">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 457">
               <path
                 fill="#ffffff"
                 fillOpacity="1"

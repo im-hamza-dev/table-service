@@ -7,7 +7,7 @@ import "./blogpreview.scss";
 
 const BlogPreview = ({ post, highlighted, ...otherProps }) => {
   return (
-    <Link to={`/`} className="card wrapper">
+    <Link to={`/blog-details`} className="card wrapper">
       {post.heroImage && (
         <div>
           {highlighted ? (

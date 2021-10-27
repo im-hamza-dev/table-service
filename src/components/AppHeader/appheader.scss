@@ -6,16 +6,12 @@ $breakpoint-mob: 576px;
   background: $bg-linear;
 
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px !important;
-  .nav-bar-logo {
-    color: $white;
-    font-weight: 800;
-    font-size: 40px;
-  }
+  padding: 26px 20px !important;
+
   .image {
     margin-bottom: 0;
-    max-width: inherit !important;
     margin-right: 15px;
+    width: 300px;
   }
   .navbar-toggler {
     border-color: transparent !important;
@@ -38,6 +34,11 @@ $breakpoint-mob: 576px;
     }
   }
   @media (max-width: $breakpoint-mob) {
+    .nav-bar {
+      .image {
+        width: 200px !important;
+      }
+    }
     .navbar-nav {
       a {
         padding-left: 20px;
