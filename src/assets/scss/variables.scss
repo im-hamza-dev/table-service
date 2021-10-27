@@ -7,10 +7,23 @@ $yellow: #ffb300;
 
 //standard heading color
 $greyheading: #d8d8d8;
+$gradientheading: radial-gradient(
+  53.14% 53.14% at 1.48% 41.51%,
+  #314ffc 0%,
+  #8c24ac 100%
+);
 
-//standard button colors;
+//standard button colors A;
 $greybuttontext: #d8d8d8;
 $greybuttonbg: #707070;
+
+//standard button colors B;
+$gradientbuttontext: radial-gradient(
+  53.14% 53.14% at 1.48% 41.51%,
+  #314ffc 0%,
+  #8c24ac 100%
+);
+$gradientbuttonbg: linear-gradient(90deg, #384af6, #8826af);
 
 //standard content color;
 $blackishText: #1c2530;
