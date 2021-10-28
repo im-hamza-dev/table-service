@@ -53,6 +53,11 @@
         text-decoration: none;
       }
     }
+    .footer-item-icon {
+      width: 84px;
+      margin-top: -140px;
+      position: absolute;
+    }
     .footer-item-heading {
       font-weight: 800;
       margin-bottom: 9px;
@@ -68,7 +73,7 @@
     .footer-item-button {
       color: $white !important;
       border-radius: 35px !important;
-      padding: 1px 17px !important;
+      padding: 5px 25px !important;
       border: 3px solid white;
       background-color: transparent;
       font-size: 20px !important;
@@ -89,6 +94,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 0px !important;
+    padding-top: 100px !important;
   }
   .footer-item-form {
     margin-bottom: 20px;

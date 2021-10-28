@@ -44,6 +44,27 @@
     }
   }
 }
+.content-page-button-parent {
+  display: flex;
+  justify-content: center;
+  .content-page-button {
+    background-color: transparent;
+    padding: 2px 25px;
+    font-size: 30px;
+    font-weight: 800;
+    color: $purple;
+    border: 4px solid $purple;
+    border-radius: 34px;
+    transition: 0.2s;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      background-color: $purple;
+      color: $white;
+    }
+  }
+}
+
 $breakpoint: 900px;
 
 @media (max-width: $breakpoint) {
@@ -56,5 +77,8 @@ $breakpoint: 900px;
     .home-section-blog-button {
       font-size: 20px;
     }
+  }
+  .content-page-button {
+    font-size: 20px;
   }
 }
