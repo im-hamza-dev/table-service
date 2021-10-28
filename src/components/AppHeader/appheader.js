@@ -1,7 +1,7 @@
 import React from "react";
 import "./appheader.scss";
 import { Link } from "gatsby";
-import logo from "../../assets/images/logo1.svg";
+import logo from "../../assets/svg/logo1.svg";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";

@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.scss";
+import LogoFooter from "../../assets/svg/footer-icon.svg";
 import Facebook from "../../assets/svg/fb.svg";
 import Instagram from "../../assets/svg/ins.svg";
 import Linkedin from "../../assets/svg/link.svg";
@@ -19,6 +20,11 @@ const Footer = () => {
         <div className="footer">
           <div className="footer-row-1">
             <div className="footer-item">
+              <img
+                src={LogoFooter}
+                alt="footer-icon"
+                className="footer-item-icon"
+              />
               <div className="footer-item-heading">
                 Get setup and running within 30 mins...
               </div>

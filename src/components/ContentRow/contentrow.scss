@@ -23,6 +23,7 @@
       justify-content: space-between;
       &.only-text {
         margin-right: 0px;
+        min-height: 300px;
         .content-row-heading {
           max-width: 800px;
         }
