@@ -12,29 +12,31 @@ import BlogPreview from "../components/BlogPreview/blogpreview";
 import TryForm from "../components/TryForm/tryform";
 
 const IndexPage = ({ data }) => {
-  console.log(data);
+  const topbanner = data?.homePost?.nodes[0]?.home?.topbanner;
+  const contentrow = data?.homePost?.nodes[0]?.home?.contentrow;
+  const tabs = data?.homePost?.nodes[0]?.home?.tabs;
+  const reviews = data?.homePost?.nodes[0]?.home?.reviews;
+
   return (
     <Layout>
       <TopBanner
         type="home"
         customId="home-section-a"
-        heading={
-          'THE <span class="yellow">SNAPPIEST</span> ORDER & PAY APP IN THE WORLD'
-        }
-        content="Game changing order and pay platform that offers a better way to do
-        business"
-        buttonText="WATCH VIDEO"
+        heading={topbanner?.title}
+        content={topbanner?.description}
+        buttonText={topbanner?.button?.text}
+        buttonLink={topbanner?.button?.link}
       />
       <ContentRow
         customId="home-section-b"
-        heading={"Main introduction to TSA"}
-        content="Introduction to the brand, our product, the speed and who are
-        customers are , pubs, bars, resturants, hotels, takeaways etc.."
-        sideImg={ImgSide}
-        button
+        heading={contentrow?.title}
+        content={contentrow?.description}
+        sideImg={contentrow?.sideimage?.sourceUrl}
+        buttonText={contentrow?.button?.text}
+        buttonLink={contentrow?.button?.link}
       />
-      <TabsServices />
-      <Reviews />
+      <TabsServices services={tabs} />
+      <Reviews reviews={reviews || []} />
       <div className="home-section-blog-parent">
         <div className="home-section-blog-heading">Latest from the Blog</div>
         <div className="home-section-blog-flex">

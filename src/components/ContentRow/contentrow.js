@@ -23,8 +23,10 @@ const ContentRow = (props) => {
               dangerouslySetInnerHTML={{ __html: props.content }}
             />
           </div>
-          {props.button && (
-            <button className="content-row-button">Tell me more</button>
+          {props.buttonText && props.buttonLink && (
+            <a className="content-row-button" href={props.buttonLink}>
+              {props.buttonText}
+            </a>
           )}
         </div>
         {props.sideImg && (
