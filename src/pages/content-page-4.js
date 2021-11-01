@@ -1,39 +1,33 @@
 import * as React from "react";
 import "./index.scss";
-import ImgSide from "../assets/images/home-sectionb.png";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
 
-const ContentPage4 = () => {
+const ContentPage4 = ({ data }) => {
+  const topbanner = data?.contentPost4?.nodes[0]?.contentpage?.topbanner;
+  const contentrows =
+    data?.contentPost4?.nodes[0]?.contentpage?.contentrows || [];
   return (
     <Layout>
       <TopBanner
         type="D"
-        customId="features-section-a"
-        heading={
-          'Look after your regular customer & make more <span class="yellow">profit</span>'
-        }
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        customId="content4-section-a"
+        heading={topbanner?.title}
+        content={topbanner?.description}
+        frontImage={topbanner?.frontimg?.sourceUrl}
       />
-      <ContentRow
-        customId="features-section-b"
-        heading={"Reduce current Fee's"}
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/><br/> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        sideImg={ImgSide}
-      />
-      <ContentRow
-        customId="features-section-b"
-        heading={"0% Commission Fees"}
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/><br/> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        sideImg={ImgSide}
-        right={true}
-      />
-      <ContentRow
-        customId="features-section-b"
-        heading={"Regular Customer"}
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/><br/> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      />
+      {contentrows &&
+        contentrows?.map((item, index) => (
+          <ContentRow
+            customId={`content4-${index}`}
+            heading={item?.row?.title}
+            content={item?.row?.description}
+            sideImg={item?.row?.sideimage?.sourceUrl}
+            right={item?.row?.imagelocation === "left"}
+          />
+        ))}
       <div className="content-page-button-parent">
         <a href="/blog" className="content-page-button">
           TELL ME MORE
@@ -44,3 +38,39 @@ const ContentPage4 = () => {
 };
 
 export default ContentPage4;
+
+export const query = graphql`
+  query contentPageQuery4 {
+    contentPost4: allWpPage(filter: { title: { eq: "ContentPage-4" } }) {
+      nodes {
+        contentpage {
+          topbanner {
+            title
+            description
+            button {
+              link
+              text
+            }
+            frontimg {
+              id
+              sourceUrl
+              title
+            }
+          }
+          contentrows {
+            row {
+              title
+              description
+              imagelocation
+              sideimage {
+                id
+                sourceUrl
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
