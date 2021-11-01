@@ -11,11 +11,11 @@ import BlogPreview from "../components/BlogPreview/blogpreview";
 import TryForm from "../components/TryForm/tryform";
 
 const IndexPage = ({ data }) => {
-  const topbanner = data?.homePost?.nodes[0]?.home?.topbanner;
+  const topbanner = data?.homePost?.nodes[0]?.home?.topbannerhome;
   const contentrow = data?.homePost?.nodes[0]?.home?.contentrow;
   const tabs = data?.homePost?.nodes[0]?.home?.tabs;
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
-
+  console.log(data);
   return (
     <Layout>
       <TopBanner
@@ -87,7 +87,7 @@ export const query = graphql`
       nodes {
         home {
           fieldGroupName
-          topbanner {
+          topbannerhome {
             description
             fieldGroupName
             title
