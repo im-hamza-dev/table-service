@@ -1,10 +1,13 @@
 import * as React from "react";
 import "./blog.scss";
+import { graphql } from "gatsby";
 import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 
-const Blog = () => {
+const Blog = ({ data }) => {
+  const allPosts = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  console.log(allPosts);
   return (
     <Layout>
       <div className="blog-parent">
@@ -31,34 +34,17 @@ const Blog = () => {
         </div>
         <div className="blog-flex">
           <div className="blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
-          </div>
-          <div className="blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
-          </div>
-          <div className="blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
+            {allPosts &&
+              allPosts?.map((item, index) => (
+                <BlogPreview
+                  post={{
+                    heroImage: item?.node?.blog?.blogimage?.sourceUrl,
+                    title: item?.node?.blog?.title,
+                    subtitle: item?.node?.blog?.subtitle,
+                    slug: item?.node?.slug,
+                  }}
+                />
+              ))}
           </div>
         </div>
         <a href="/blog" className="blog-button">
@@ -70,3 +56,33 @@ const Blog = () => {
 };
 
 export default Blog;
+
+export const pageQuery = graphql`
+  query BlogIndexQuery {
+    allWpPost {
+      edges {
+        node {
+          ...BlogPreviewFields
+        }
+      }
+    }
+  }
+`;
+
+export const BlogPreviewFields = graphql`
+  fragment BlogPreviewFields on WpPost {
+    slug
+    title
+    blog {
+      title
+      subtitle
+      description
+      category
+      blogimage {
+        title
+        sourceUrl
+        id
+      }
+    }
+  }
+`;
