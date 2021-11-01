@@ -1,8 +1,15 @@
 import * as React from "react";
 import "./topbanner.scss";
-import MobileMockup from "../../assets/images/typeD-img.png";
 
-const TopBanner = ({ customId, heading, content, buttonText, type }) => {
+const TopBanner = ({
+  customId,
+  heading,
+  content,
+  buttonText,
+  type,
+  buttonLink,
+  frontImage,
+}) => {
   return (
     <div
       className={`top-banner ${type === "home" ? "home" : ""} ${
@@ -15,7 +22,7 @@ const TopBanner = ({ customId, heading, content, buttonText, type }) => {
       {type === "D" && (
         <img
           className="top-banner-typeD-mockup"
-          src={MobileMockup}
+          src={frontImage}
           alt="mobile-mockup"
         />
       )}
@@ -26,9 +33,14 @@ const TopBanner = ({ customId, heading, content, buttonText, type }) => {
           className="top-banner-heading"
           dangerouslySetInnerHTML={{ __html: heading }}
         />
-        <div className="top-banner-content">{content}</div>
-        {buttonText && (
-          <button className="top-banner-button">{buttonText}</button>
+        <div
+          className="top-banner-content"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+        {buttonText && buttonLink && (
+          <a href={buttonLink} className="top-banner-button">
+            {buttonText}
+          </a>
         )}
       </div>
 

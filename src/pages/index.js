@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./index.scss";
+import { graphql } from "gatsby";
 import ImgSide from "../assets/images/home-sectionb.png";
 import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
@@ -10,7 +11,8 @@ import Reviews from "../components/Reviews/reviews";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 import TryForm from "../components/TryForm/tryform";
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <TopBanner
@@ -77,3 +79,58 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query homePage {
+    homePost: allWpPage(filter: { title: { eq: "Home" } }) {
+      nodes {
+        home {
+          fieldGroupName
+          topbanner {
+            description
+            fieldGroupName
+            title
+            button {
+              link
+              text
+            }
+          }
+          contentrow {
+            title
+            description
+            sideimage {
+              id
+              sourceUrl
+              title
+            }
+            button {
+              text
+              link
+            }
+          }
+          tabs {
+            title
+            tabsgroup {
+              tab {
+                tabtitle
+                title
+                description
+                points {
+                  point
+                }
+              }
+            }
+          }
+          reviews {
+            review {
+              title
+              description
+              name
+              role
+            }
+          }
+        }
+      }
+    }
+  }
+`;
