@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./index.scss";
 import { graphql } from "gatsby";
-import ImgSide from "../assets/images/home-sectionb.png";
 import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
