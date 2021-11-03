@@ -1,11 +1,24 @@
 @import "../../assets/scss/variables.scss";
 
+.tabsservices-yellowimg {
+  position: absolute;
+  right: 0;
+  margin-top: 600px;
+}
+.tabsservices-greenimg {
+  position: absolute;
+  left: 0;
+}
 .tabsservices {
   width: 100%;
   min-height: 990px;
   background-color: #304ffe;
   padding: 100px;
   text-align: center;
+  background-image: url("../../assets/svg/tabbg.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .tabsservices-heading {
     font-size: 60px;

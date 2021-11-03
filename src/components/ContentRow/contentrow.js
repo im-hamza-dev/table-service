@@ -3,7 +3,11 @@ import "./contentrow.scss";
 
 const ContentRow = (props) => {
   return (
-    <div className={`content-row ${props.bgimg ? "enableimg" : ""}`}>
+    <div
+      className={`content-row ${props.bgimg ? "enableimg" : ""} ${
+        props.type === "home" ? "home" : ""
+      }`}
+    >
       <div
         className={`content-row-flex ${props.right ? "right" : ""}`}
         id={props.customId}
@@ -11,7 +15,7 @@ const ContentRow = (props) => {
         <div
           className={`content-row-text-parent ${
             props.sideImg ? "" : "only-text"
-          }`}
+          } `}
         >
           <div>
             <div
@@ -30,7 +34,11 @@ const ContentRow = (props) => {
           )}
         </div>
         {props.sideImg && (
-          <div className="content-row-img-parent">
+          <div
+            className={`content-row-img-parent ${
+              props.type === "home" ? "imghome" : ""
+            }`}
+          >
             <img src={props.sideImg} alt="side-img" />
           </div>
         )}

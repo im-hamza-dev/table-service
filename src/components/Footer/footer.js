@@ -95,7 +95,8 @@ const Footer = () => {
           <hr />
           <div className="footer-row-2">
             <div className="footer-row-2-sub-flex">
-              <div>Terms of Use</div> |<div>Terms of Service</div> |
+              <div>Terms of Use</div> <span> |</span>
+              <div>Terms of Service</div> <span> |</span>
               <div>Privacy Policy</div>
             </div>
             <div>Table Service App Limited</div>

@@ -117,4 +117,19 @@
   .footer-item-email-input {
     margin-bottom: 20px;
   }
+  .footer-row-2 {
+    flex-direction: column;
+    padding: 0px;
+
+    .footer-row-2-sub-flex {
+      flex-direction: column;
+      div {
+        margin: 0px !important;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
 }

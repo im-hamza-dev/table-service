@@ -33,6 +33,9 @@ const IndexPage = ({ data }) => {
         sideImg={contentrow?.sideimage?.sourceUrl}
         buttonText={contentrow?.button?.text}
         buttonLink={contentrow?.button?.link}
+        bgimg
+        right
+        type="home"
       />
       <TabsServices services={tabs} />
       <Reviews reviews={reviews || []} />

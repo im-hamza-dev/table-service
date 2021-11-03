@@ -34,6 +34,15 @@ $breakpoint-mob: 576px;
     }
   }
   @media (max-width: $breakpoint-mob) {
+    .container-fluid {
+      padding: 0px !important;
+    }
+    .nav-bar-logo {
+      .image {
+        width: 200px;
+        margin-right: 0px;
+      }
+    }
     .nav-bar {
       .image {
         width: 200px !important;
