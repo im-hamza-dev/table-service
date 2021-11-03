@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./index.scss";
 import { graphql } from "gatsby";
-import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
 import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
@@ -15,6 +14,9 @@ const IndexPage = ({ data }) => {
   const contentrow = data?.homePost?.nodes[0]?.home?.contentrow;
   const tabs = data?.homePost?.nodes[0]?.home?.tabs;
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
+
+  const blogsLatest = (data && data.allWpPost && data.allWpPost?.edges) || [];
+
   console.log(data);
   return (
     <Layout>
@@ -42,36 +44,20 @@ const IndexPage = ({ data }) => {
       <div className="home-section-blog-parent">
         <div className="home-section-blog-heading">Latest from the Blog</div>
         <div className="home-section-blog-flex">
-          <div className="home-section-blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
-          </div>
-          <div className="home-section-blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
-          </div>
-          <div className="home-section-blog-item">
-            <BlogPreview
-              post={{
-                heroImage: ImgBlog,
-                title: "Customers return visits based on speed of ordering",
-                subtitle:
-                  "People are making choices on what venues to visits based on the speed of service",
-              }}
-            />
-          </div>
+          {blogsLatest &&
+            blogsLatest?.map((item, index) => (
+              <div className="home-section-blog-item" key={`blog-${index}`}>
+                <BlogPreview
+                  post={{
+                    heroImage: item?.node?.blog?.blogimage?.sourceUrl,
+                    title: item?.node?.blog?.title,
+                    subtitle: item?.node?.blog?.subtitle,
+                    slug: item?.node?.slug,
+                    category: item?.node?.blog?.category,
+                  }}
+                />
+              </div>
+            ))}
         </div>
         <a href="/blog" className="home-section-blog-button">
           VIEW ALL
@@ -134,6 +120,31 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    allWpPost {
+      edges {
+        node {
+          ...BlogPreviewFields2
+        }
+      }
+    }
+  }
+`;
+
+export const BlogPreviewFields = graphql`
+  fragment BlogPreviewFields2 on WpPost {
+    slug
+    title
+    blog {
+      title
+      subtitle
+      description
+      category
+      blogimage {
+        title
+        sourceUrl
+        id
       }
     }
   }

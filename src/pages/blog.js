@@ -33,19 +33,20 @@ const Blog = ({ data }) => {
           </div>
         </div>
         <div className="blog-flex">
-          <div className="blog-item">
-            {allPosts &&
-              allPosts?.map((item, index) => (
+          {allPosts &&
+            allPosts?.map((item, index) => (
+              <div className="blog-item" key={`blog-${index}`}>
                 <BlogPreview
                   post={{
                     heroImage: item?.node?.blog?.blogimage?.sourceUrl,
                     title: item?.node?.blog?.title,
                     subtitle: item?.node?.blog?.subtitle,
                     slug: item?.node?.slug,
+                    category: item?.node?.blog?.category,
                   }}
                 />
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
         <a href="/blog" className="blog-button">
           LOAD MORE

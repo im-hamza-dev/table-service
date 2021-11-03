@@ -66,9 +66,11 @@ $breakpoint-mob: 576px;
 .tag {
   font-size: 12px !important;
 }
-
+.blog-preview-category {
+  color: #272727;
+}
 .title {
-  margin-bottom: 15px !important;
+  margin-bottom: 5px !important;
   min-height: 41px;
   text-align: left;
   h5 {
@@ -107,4 +109,9 @@ p.subtitle {
     font-weight: bold;
     margin: 0 5px;
   }
+}
+
+.img-parent {
+  max-height: 270px;
+  overflow: hidden;
 }
