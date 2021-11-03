@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./topbanner.scss";
+import Snap from "../../assets/svg/snap.svg";
 
 const TopBanner = ({
   customId,
@@ -29,10 +30,15 @@ const TopBanner = ({
       <div
         className={`top-banner-content-parent ${type === "D" ? "typeD" : ""}`}
       >
-        <div
-          className="top-banner-heading"
-          dangerouslySetInnerHTML={{ __html: heading }}
-        />
+        <div className={type === "home" ? "headingParent" : ""}>
+          {type === "home" && <img src={Snap} alt="snap-icon" />}
+
+          <div
+            className="top-banner-heading"
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
+        </div>
+
         <div
           className="top-banner-content"
           dangerouslySetInnerHTML={{ __html: content }}

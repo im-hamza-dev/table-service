@@ -4,7 +4,6 @@ $breakpoint-mob: 576px;
 
 .nav-bar {
   background: $bg-linear;
-
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   padding: 26px 20px !important;
 
@@ -26,6 +25,7 @@ $breakpoint-mob: 576px;
   .container-fluid {
     padding-right: 160px !important;
     padding-left: 160px !important;
+    max-width: 1400px;
   }
   @media screen and (max-width: $breakpoint-tab) {
     .container-fluid {

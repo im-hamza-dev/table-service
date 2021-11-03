@@ -11,6 +11,14 @@
         rgb(48, 79, 254, 0.79)
       ),
       url("../../assets/images/home-bg-cover.png");
+    .top-banner-content-parent {
+      .top-banner-heading {
+        max-width: 840px;
+      }
+      .top-banner-content {
+        max-width: 700px;
+      }
+    }
   }
   &.content-A {
     background-image: linear-gradient(
@@ -55,6 +63,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .headingParent {
+      position: relative;
+      img {
+        position: absolute;
+        top: -2px;
+        left: 85%;
+        @media (max-width: 1400px) {
+          width: 33px;
+          height: 33px;
+          top: -7px;
+          left: 35.5%;
+        }
+      }
+    }
     &.typeD {
       text-align: left;
       align-items: flex-start;
@@ -95,7 +117,7 @@
     }
     .top-banner-button {
       background-color: transparent;
-      padding: 10px 25px;
+      padding: 6px 25px;
       font-size: 30px;
       font-weight: 800;
       color: $white;
@@ -121,14 +143,22 @@ $breakpoint: 1000px;
   }
   .top-banner-content-parent {
     padding: 100px 20px !important;
+
     &.typeD {
       width: 100% !important;
       margin-left: 0px !important;
+    }
+    .headingParent {
+      img {
+        top: -2px;
+        left: 83% !important;
+      }
     }
     .top-banner-heading {
       font-size: 40px !important;
       line-height: 50px !important;
       font-weight: 800 !important;
+      max-width: 442px !important;
     }
     .top-banner-content {
       font-size: 25px !important;

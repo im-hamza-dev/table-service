@@ -5,6 +5,7 @@ import Facebook from "../../assets/svg/fb.svg";
 import Instagram from "../../assets/svg/ins.svg";
 import Linkedin from "../../assets/svg/link.svg";
 import Twitter from "../../assets/svg/tw.svg";
+import Youtube from "../../assets/svg/youtube.svg";
 
 const Footer = () => {
   return (
@@ -49,6 +50,9 @@ const Footer = () => {
 
                   <a href="https://twitter.com/?lang=en">
                     <img src={Twitter} alt="twitter" />
+                  </a>
+                  <a href="https://twitter.com/?lang=en">
+                    <img src={Youtube} alt="youtube" />
                   </a>
                 </div>
               </div>

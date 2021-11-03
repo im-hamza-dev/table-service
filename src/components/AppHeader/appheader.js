@@ -7,7 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 
 const AppHeader = () => (
-  <Navbar className="nav-bar" expand="md" collapseOnSelect>
+  <Navbar className="nav-bar" expand="lg" collapseOnSelect>
     <Container fluid>
       <Navbar.Brand className="nav-bar-logo" as={Link} to="/">
         <img alt="tableservice" src={logo} className="image" />

@@ -3,7 +3,7 @@ import "./contentrow.scss";
 
 const ContentRow = (props) => {
   return (
-    <div className="content-row">
+    <div className={`content-row ${props.bgimg ? "enableimg" : ""}`}>
       <div
         className={`content-row-flex ${props.right ? "right" : ""}`}
         id={props.customId}
