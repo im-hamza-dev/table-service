@@ -8,12 +8,14 @@ import TabsServices from "../components/TabsServices/tabsservices";
 import Reviews from "../components/Reviews/reviews";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 import TryForm from "../components/TryForm/tryform";
+import Benefits from "../components/Benefits/benefits";
 
 const IndexPage = ({ data }) => {
   const topbanner = data?.homePost?.nodes[0]?.home?.topbannerhome;
   const contentrow = data?.homePost?.nodes[0]?.home?.contentrow;
   const tabs = data?.homePost?.nodes[0]?.home?.tabs;
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
+  const benefits = data?.homePost?.nodes[0]?.home?.benefits;
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const blogsLatest = allblogs?.filter(
@@ -43,6 +45,7 @@ const IndexPage = ({ data }) => {
       />
       <TabsServices services={tabs} />
       <Reviews reviews={reviews || []} />
+      <Benefits benefits={benefits} />
       <div className="home-section-blog-parent">
         <div className="home-section-blog-heading">Latest from the Blog</div>
         <div className="home-section-blog-flex">
@@ -87,6 +90,26 @@ export const query = graphql`
               text
             }
           }
+          benefits {
+            description
+            heading
+            sideimg {
+              id
+              sourceUrl
+              title
+            }
+            points {
+              point {
+                title
+                content
+                icon {
+                  title
+                  sourceUrl
+                  id
+                }
+              }
+            }
+          }
           contentrow {
             title
             description
@@ -102,6 +125,7 @@ export const query = graphql`
           }
           tabs {
             title
+            description
             tabsgroup {
               tab {
                 tabtitle

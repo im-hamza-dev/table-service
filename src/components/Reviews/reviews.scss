@@ -6,6 +6,16 @@
   background-color: #fafafb;
   padding: 100px;
   text-align: center;
+  .review-parent-leftimg {
+    position: absolute;
+    left: 25%;
+    margin-top: -70px;
+  }
+  .review-parent-rightimg {
+    text-align: right;
+    max-width: 980px;
+    margin: 0px auto;
+  }
 
   .reviews-heading {
     font-size: 60px;
@@ -51,8 +61,11 @@ $breakpoint: 900px;
 
 @media (max-width: $breakpoint) {
   .reviews-parent {
-    padding: 100px 20px;
-
+    padding: 50px 20px;
+    .review-parent-leftimg {
+      left: 5%;
+      margin-top: -30px;
+    }
     .reviews-heading {
       font-size: 40px;
       line-height: 50px;

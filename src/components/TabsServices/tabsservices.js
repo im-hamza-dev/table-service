@@ -8,18 +8,24 @@ const TabsServices = (props) => {
   return (
     <div className="tabsservices">
       <div className="tabsservices-heading">{props.services?.title}</div>
+      <div className="tabsservices-description">
+        {props.services?.description}
+      </div>
       {props.services?.tabsgroup && (
         <Tabs defaultActiveKey={1} className="tabsservices-tab-parent">
           {props.services?.tabsgroup?.map((item, index) => (
             <Tab eventKey={index + 1} title={item?.tab?.tabtitle}>
               <div className="tabsservices-table">
                 <div className="tabsservices-table-left">
-                  <div className="tableservices-table-heading">
-                    {item?.tab?.title}
-                  </div>
-                  <div className="tableservices-table-content">
-                    {item?.tab?.description}
-                  </div>
+                  <div
+                    className="tableservices-table-heading"
+                    dangerouslySetInnerHTML={{ __html: item?.tab?.title }}
+                  />
+                  <div
+                    className="tableservices-table-content"
+                    dangerouslySetInnerHTML={{ __html: item?.tab?.description }}
+                  />
+
                   <button className="tableservices-table-button">
                     Join now
                   </button>

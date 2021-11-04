@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./contentrow.scss";
+import Clock from "../../assets/svg/clock.svg";
 
 const ContentRow = (props) => {
   return (
@@ -18,6 +19,7 @@ const ContentRow = (props) => {
           } `}
         >
           <div>
+            {props.type === "home" && <img src={Clock} alt="clock" />}
             <div
               className="content-row-heading"
               dangerouslySetInnerHTML={{ __html: props.heading }}
