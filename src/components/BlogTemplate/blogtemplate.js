@@ -1,8 +1,6 @@
 import * as React from "react";
 import "./blogtemplate.scss";
 import { graphql } from "gatsby";
-
-import ImgBlog from "../../assets/images/home-bg-cover.png";
 import Layout from "../Layout/layout";
 import BlogPreview from "../BlogPreview/blogpreview";
 

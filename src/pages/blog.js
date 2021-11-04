@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./blog.scss";
 import { graphql } from "gatsby";
-import ImgBlog from "../assets/images/home-bg-cover.png";
 import Layout from "../components/Layout/layout";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 
