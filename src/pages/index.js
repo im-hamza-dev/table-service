@@ -15,9 +15,11 @@ const IndexPage = ({ data }) => {
   const tabs = data?.homePost?.nodes[0]?.home?.tabs;
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
 
-  const blogsLatest = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  const blogsLatest = allblogs?.filter(
+    (item) => item?.node?.blog?.category === "Latest"
+  );
 
-  console.log(data);
   return (
     <Layout>
       <TopBanner

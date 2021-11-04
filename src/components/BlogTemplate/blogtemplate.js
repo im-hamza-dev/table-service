@@ -8,8 +8,11 @@ import BlogPreview from "../BlogPreview/blogpreview";
 
 const BlogTemplate = ({ data }) => {
   const post = data && data.wpPost?.blog;
-  console.log(post);
 
+  const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  const relatedPost = allblogs?.filter(
+    (item) => item?.node?.blog?.category === post?.category
+  );
   return (
     <Layout>
       <div className="blog-details-parent">
@@ -29,38 +32,22 @@ const BlogTemplate = ({ data }) => {
           />
         </div>
         <div className="relative-blog-parent">
-          <div className="relative-blog-heading">Latest from the Blog</div>
+          <div className="relative-blog-heading">Related Articles</div>
           <div className="relative-blog-flex">
-            <div className="relative-blog-item">
-              <BlogPreview
-                post={{
-                  heroImage: ImgBlog,
-                  title: "Customers return visits based on speed of ordering",
-                  subtitle:
-                    "People are making choices on what venues to visits based on the speed of service",
-                }}
-              />
-            </div>
-            <div className="relative-blog-item">
-              <BlogPreview
-                post={{
-                  heroImage: ImgBlog,
-                  title: "Customers return visits based on speed of ordering",
-                  subtitle:
-                    "People are making choices on what venues to visits based on the speed of service",
-                }}
-              />
-            </div>
-            <div className="relative-blog-item">
-              <BlogPreview
-                post={{
-                  heroImage: ImgBlog,
-                  title: "Customers return visits based on speed of ordering",
-                  subtitle:
-                    "People are making choices on what venues to visits based on the speed of service",
-                }}
-              />
-            </div>
+            {relatedPost &&
+              relatedPost?.map((item, index) => (
+                <div className="relative-blog-item" key={`blog-${index}`}>
+                  <BlogPreview
+                    post={{
+                      heroImage: item?.node?.blog?.blogimage?.sourceUrl,
+                      title: item?.node?.blog?.title,
+                      subtitle: item?.node?.blog?.subtitle,
+                      slug: item?.node?.slug,
+                      category: item?.node?.blog?.category,
+                    }}
+                  />
+                </div>
+              ))}
           </div>
           <a href="/blog" className="relative-blog-button">
             VIEW ALL
@@ -88,6 +75,31 @@ export const pageQuery = graphql`
           sourceUrl
           id
         }
+      }
+    }
+    allWpPost {
+      edges {
+        node {
+          ...BlogPreviewFields3
+        }
+      }
+    }
+  }
+`;
+
+export const BlogPreviewFields = graphql`
+  fragment BlogPreviewFields3 on WpPost {
+    slug
+    title
+    blog {
+      title
+      subtitle
+      description
+      category
+      blogimage {
+        title
+        sourceUrl
+        id
       }
     }
   }

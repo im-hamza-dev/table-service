@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import "./blog.scss";
 import { graphql } from "gatsby";
 import ImgBlog from "../assets/images/home-bg-cover.png";
@@ -6,15 +6,64 @@ import Layout from "../components/Layout/layout";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 
 const Blog = ({ data }) => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredPost, setFilteredPost] = useState([]);
   const allPosts = (data && data.allWpPost && data.allWpPost?.edges) || [];
-  console.log(allPosts);
+
+  const highlightedPost = allPosts?.filter(
+    (item) => item?.node?.blog?.highlighted === "Yes"
+  );
+
+  let categoryArray = [
+    "All",
+    "Latest",
+    "News & Events",
+    "Technology",
+    "Pubs & Resturants",
+    "Festivals",
+  ];
+
+  const generateFilteredPost = (item) => {
+    setSelectedCategory(item);
+    if (item === "All") {
+      setFilteredPost(allPosts);
+    } else {
+      let filtered = allPosts.filter((x) => x?.node?.blog?.category === item);
+      setFilteredPost(filtered);
+    }
+  };
+  useEffect(() => {
+    generateFilteredPost("All");
+  }, []);
+
   return (
     <Layout>
       <div className="blog-parent">
         <div className="blog-heading">OUR BLOG</div>
+        <div className="blog-buttons-flex">
+          {categoryArray.map((item, index) => (
+            <div
+              to="#list"
+              className={`blog-category-button ${
+                item === selectedCategory ? "selected" : ""
+              }`}
+              key={`category-${index}`}
+              onClick={() => {
+                document.getElementById("highlighted-desc").scrollIntoView();
+
+                generateFilteredPost(item);
+              }}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
         <div className="blog-highlighted">
           <div className="blog-highlighted-img-parent">
-            <img src={ImgBlog} alt="preview" />
+            <img
+              src={highlightedPost[0]?.node?.blog?.blogimage?.sourceUrl}
+              alt="preview"
+            />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 457">
               <path
                 fill="#ffffff"
@@ -23,18 +72,24 @@ const Blog = ({ data }) => {
               ></path>
             </svg>
           </div>
-          <div className="blog-highlighted-title">
-            Special treatment for special customers
-          </div>
-          <div className="blog-highlighted-desc">
-            Changing the way people eat & drink with the worlds fastest order
-            and pay platform, creating a seemless order experience for you and
-            your customers.
-          </div>
+
+          <div
+            className="blog-highlighted-title"
+            dangerouslySetInnerHTML={{
+              __html: highlightedPost[0]?.node?.blog?.title,
+            }}
+          />
+          <div
+            id="highlighted-desc"
+            className="blog-highlighted-desc"
+            dangerouslySetInnerHTML={{
+              __html: highlightedPost[0]?.node?.blog?.subtitle,
+            }}
+          />
         </div>
-        <div className="blog-flex">
-          {allPosts &&
-            allPosts?.map((item, index) => (
+        <div className="blog-flex" id="list">
+          {filteredPost &&
+            filteredPost?.map((item, index) => (
               <div className="blog-item" key={`blog-${index}`}>
                 <BlogPreview
                   post={{
@@ -47,7 +102,13 @@ const Blog = ({ data }) => {
                 />
               </div>
             ))}
+          {filteredPost?.length === 0 && (
+            <div className="blog-not-found-content">
+              Not found blogpost of this category
+            </div>
+          )}
         </div>
+        <br />
         <a href="/blog" className="blog-button">
           LOAD MORE
         </a>
@@ -77,6 +138,7 @@ export const BlogPreviewFields = graphql`
     blog {
       title
       subtitle
+      highlighted
       description
       category
       blogimage {

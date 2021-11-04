@@ -15,6 +15,28 @@
     display: block;
     background-color: #fafafb;
   }
+  .blog-buttons-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    .blog-category-button {
+      font-size: 16px;
+      font-weight: 700;
+      color: $blackishText;
+      padding: 5px;
+      text-transform: uppercase;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        border-bottom: 4px solid $yellow;
+      }
+      &.selected {
+        border-bottom: 4px solid $yellow;
+      }
+    }
+  }
   .blog-highlighted {
     width: 100%;
     text-align: center;
@@ -22,13 +44,19 @@
       width: 100%;
       background-color: rgb(234, 238, 255, 0.48);
       padding-top: 100px;
-      height: 500px;
+      height: 700px;
       svg {
         margin-top: -300px;
       }
       img {
         max-width: 900px;
+        max-height: 600px;
         border-radius: 24px;
+      }
+      @media (max-width: 1350px) {
+        svg {
+          margin-top: -200px;
+        }
       }
     }
     .blog-highlighted-title {
@@ -55,10 +83,15 @@
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 30px 0px;
+    margin: 100x 0px 50px;
     .blog-item {
       width: 453px;
       margin: 15px;
+    }
+    .blog-not-found-content {
+      font-weight: 700;
+      color: rgb(153, 40, 40);
+      margin: 50px 10px;
     }
   }
   .blog-button {
@@ -93,7 +126,7 @@
         padding-top: 100px;
         height: 200px;
         svg {
-          margin-top: -80px;
+          margin-top: -60px;
         }
         img {
           max-width: 300px;
@@ -103,7 +136,7 @@
       .blog-highlighted-title {
         font-size: 36px;
         line-height: 44px;
-        margin: 30px 20px 20px;
+        margin: 150px 20px 20px;
       }
       .blog-highlighted-desc {
         font-size: 20px;
