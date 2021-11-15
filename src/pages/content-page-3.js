@@ -42,7 +42,7 @@ export default ContentPage3;
 
 export const query = graphql`
   query contentPageQuery3 {
-    contentPost3: allWpPage(filter: { title: { eq: "ContentPage-3" } }) {
+    contentPost3: allWpPage(filter: { id: { eq: "cG9zdDoyMjgy" } }) {
       nodes {
         contentpage {
           topbanner {

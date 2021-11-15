@@ -77,7 +77,7 @@ export default IndexPage;
 
 export const query = graphql`
   query homePage {
-    homePost: allWpPage(filter: { title: { eq: "Home" } }) {
+    homePost: allWpPage(filter: { id: { eq: "cG9zdDoyMjI2" } }) {
       nodes {
         home {
           fieldGroupName

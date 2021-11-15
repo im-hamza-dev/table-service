@@ -5,7 +5,6 @@
   &.home {
     padding: 30px 30px 0px;
     .content-row-flex {
-      align-items: flex-end;
       .content-row-text-parent {
         .content-row-heading {
           font-size: 45px;
@@ -107,7 +106,7 @@
     .content-row-img-parent {
       &.imghome {
         img {
-          width: 326px !important;
+          max-width: 423px !important;
           border-radius: 0px;
         }
       }

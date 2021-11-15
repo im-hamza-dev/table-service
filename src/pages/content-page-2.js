@@ -6,6 +6,7 @@ import TopBanner from "../components/TopBanner/topbanner";
 import ContentRow from "../components/ContentRow/contentrow";
 
 const ContentPage2 = ({ data }) => {
+  console.log(data);
   const topbanner = data?.contentPost2?.nodes[0]?.contentpage?.topbanner;
   const contentrows =
     data?.contentPost2?.nodes[0]?.contentpage?.contentrows || [];
@@ -41,7 +42,7 @@ const ContentPage2 = ({ data }) => {
 export default ContentPage2;
 export const query = graphql`
   query contentPageQuery2 {
-    contentPost2: allWpPage(filter: { title: { eq: "ContentPage-2" } }) {
+    contentPost2: allWpPage(filter: { id: { eq: "cG9zdDoyMjgw" } }) {
       nodes {
         contentpage {
           topbanner {
