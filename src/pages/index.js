@@ -16,6 +16,7 @@ const IndexPage = ({ data }) => {
   const tabs = data?.homePost?.nodes[0]?.home?.tabs;
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
   const benefits = data?.homePost?.nodes[0]?.home?.benefits;
+  const form = data?.homePost?.nodes[0]?.home?.form;
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const blogsLatest = allblogs?.filter(
@@ -68,7 +69,7 @@ const IndexPage = ({ data }) => {
           VIEW ALL
         </a>
       </div>
-      <TryForm />
+      <TryForm form={form} />
     </Layout>
   );
 };
@@ -81,6 +82,10 @@ export const query = graphql`
       nodes {
         home {
           fieldGroupName
+          form {
+            title
+            description
+          }
           topbannerhome {
             description
             fieldGroupName

@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.scss";
+import { useStaticQuery, graphql } from "gatsby";
 import LogoFooter from "../../assets/svg/footer-icon.svg";
 import Facebook from "../../assets/svg/fb.svg";
 import Instagram from "../../assets/svg/ins.svg";
@@ -8,6 +9,36 @@ import Twitter from "../../assets/svg/tw.svg";
 import Youtube from "../../assets/svg/youtube.svg";
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query footerQuery {
+      footerData: allWpPage(filter: { title: { eq: "Footer" } }) {
+        nodes {
+          footer {
+            description
+            facebook
+            instagram
+            linkedin
+            title
+            twitter
+            youtube
+            button {
+              link
+              text
+            }
+            contactus {
+              appname
+              telephone
+              email
+              companyno
+              address
+            }
+          }
+        }
+      }
+    }
+  `);
+  const footer = data?.footerData?.nodes[0]?.footer;
+  console.log(data);
   return (
     <>
       <div className="footer-parent">
@@ -26,34 +57,47 @@ const Footer = () => {
                 alt="footer-icon"
                 className="footer-item-icon"
               />
-              <div className="footer-item-heading">
-                Get setup and running within 30 mins...
-              </div>
-              <div className="footer-item-text">
-                You are 30 minutes away from having the fastest, easiest to use
-                order and pay platform in the world.
-              </div>
-              <button className="footer-item-button">Join Now</button>
+              <div
+                className="footer-item-heading"
+                dangerouslySetInnerHTML={{ __html: footer?.title }}
+              />
+              <div
+                className="footer-item-text"
+                dangerouslySetInnerHTML={{ __html: footer?.description }}
+              />
+
+              {footer?.button?.text && (
+                <a href={footer?.button?.link} className="footer-item-button">
+                  {footer?.button?.text}
+                </a>
+              )}
               <div className="footer-item-social">
                 <div className="footer-icons-parent">
-                  <a href="https://www.facebook.com/">
-                    <img src={Facebook} alt="facebook" />
-                  </a>
-
-                  <a href="https://www.instagram.com/">
-                    <img src={Instagram} alt="instagram" />
-                  </a>
-
-                  <a href="https://www.linkedin.com/">
-                    <img src={Linkedin} alt="linkedin" />
-                  </a>
-
-                  <a href="https://twitter.com/?lang=en">
-                    <img src={Twitter} alt="twitter" />
-                  </a>
-                  <a href="https://twitter.com/?lang=en">
-                    <img src={Youtube} alt="youtube" />
-                  </a>
+                  {footer?.facebook && (
+                    <a href={footer?.facebook}>
+                      <img src={Facebook} alt="facebook" />
+                    </a>
+                  )}
+                  {footer?.instagram && (
+                    <a href={footer?.instagram}>
+                      <img src={Instagram} alt="instagram" />
+                    </a>
+                  )}
+                  {footer?.linkedin && (
+                    <a href={footer?.linkedin}>
+                      <img src={Linkedin} alt="linkedin" />
+                    </a>
+                  )}
+                  {footer?.twitter && (
+                    <a href={footer?.twitter}>
+                      <img src={Twitter} alt="twitter" />
+                    </a>
+                  )}
+                  {footer?.youtube && (
+                    <a href={footer?.youtube}>
+                      <img src={Youtube} alt="youtube" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -81,14 +125,12 @@ const Footer = () => {
             <div className="footer-item">
               <div className="footer-item-heading">Contact Us</div>
               <div className="footer-item-text">
-                <div>Table Service App Ltd</div>
-                <div>t: 0800 048 5790</div>
-                <div>e: hello@tablesserviceapp.com</div>
+                <div>{footer?.contactus?.appname}</div>
+                <div>t: {footer?.contactus?.telephone}</div>
+                <div>e: {footer?.contactus?.email}</div>
                 <br />
-                <div>Company No. 13310818</div>
-                <div>Registered Address: 6th Floor</div>
-                <div>49 Peter Street, Manchester</div>
-                <div>United Kingdom, M2 3NG</div>
+                <div>Company No. {footer?.contactus?.companyno}</div>
+                <div>Registered Address: {footer?.contactus?.address}</div>
               </div>
             </div>
           </div>

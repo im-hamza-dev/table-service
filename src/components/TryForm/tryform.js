@@ -5,12 +5,15 @@ const TryForm = (props) => {
   const handleSubmit = () => {};
   return (
     <div className="try-form">
-      <div className="try-form-heading">Try our platform</div>
-      <div className="try-form-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam,
-      </div>
+      <div
+        className="try-form-heading"
+        dangerouslySetInnerHTML={{ __html: props.form.title }}
+      />
+
+      <div
+        className="try-form-desc"
+        dangerouslySetInnerHTML={{ __html: props.form.description }}
+      />
       <div className="form-parent">
         <form
           name="demo"
