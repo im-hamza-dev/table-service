@@ -2,6 +2,8 @@ import React from "react";
 import "./benefits.scss";
 
 const Benefits = (props) => {
+  console.log(".");
+
   return (
     <div className="benefits">
       <div
