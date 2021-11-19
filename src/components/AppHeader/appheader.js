@@ -19,7 +19,7 @@ const AppHeader = () => (
       >
         <Nav className="nav-buttons ml-auto">
           <Nav.Link as={Link} to="/">
-            Our Approach
+            Home
           </Nav.Link>
           <Nav.Link as={Link} to="/content-page-1">
             Features
@@ -27,15 +27,15 @@ const AppHeader = () => (
           <Nav.Link as={Link} to="/content-page-2">
             How It Works
           </Nav.Link>
-          <Nav.Link as={Link} to="/content-page-3">
+          {/* <Nav.Link as={Link} to="/content-page-3">
             Pricing
           </Nav.Link>
           <Nav.Link as={Link} to="/content-page-4">
             Help
-          </Nav.Link>
+          </Nav.Link> */}
 
           <Nav.Link eventKey={2} as={Link} to="/" className="login-button">
-            Join Now
+            Sign Up
           </Nav.Link>
           <Nav.Link
             eventKey={3}
@@ -43,7 +43,7 @@ const AppHeader = () => (
             to="/"
             className="login-button--mobile"
           >
-            Join Now
+            Sign Up
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
