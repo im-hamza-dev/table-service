@@ -67,13 +67,16 @@
       position: relative;
       img {
         position: absolute;
-        top: -2px;
+        top: -3px;
         left: 85%;
         @media (max-width: 1400px) {
           width: 33px;
           height: 33px;
           top: -7px;
           left: 35.5%;
+        }
+        @media (max-width: 450px) {
+          display: none;
         }
       }
     }
@@ -142,7 +145,7 @@ $breakpoint: 1000px;
     width: 320px !important;
   }
   .top-banner-content-parent {
-    padding: 100px 20px !important;
+    padding: 100px 15px !important;
 
     &.typeD {
       width: 100% !important;

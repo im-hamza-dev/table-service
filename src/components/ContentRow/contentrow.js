@@ -19,7 +19,6 @@ const ContentRow = (props) => {
           } `}
         >
           <div>
-            {props.type === "home" && <img src={Clock} alt="clock" />}
             <div
               className="content-row-heading"
               dangerouslySetInnerHTML={{ __html: props.heading }}
