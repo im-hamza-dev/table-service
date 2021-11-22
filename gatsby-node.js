@@ -13,6 +13,9 @@ exports.createPages = ({ graphql, actions }) => {
     const blogPost = path.resolve(
       "./src/components/BlogTemplate/blogtemplate.js"
     );
+    const contentPage = path.resolve(
+      "./src/components/ContentPageTemplate/contentpage-template.js"
+    );
     resolve(
       graphql(
         `
@@ -25,6 +28,17 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
+            allWpPage {
+              edges {
+                node {
+                  title
+                  slug
+                  contentpage {
+                    navmenu
+                  }
+                }
+              }
+            }
           }
         `
       ).then((result) => {
@@ -32,6 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors);
           reject(result.errors);
         }
+        // blog-post
 
         const posts = result.data.allWpPost.edges;
         posts.forEach((post, index) => {
@@ -42,6 +57,20 @@ exports.createPages = ({ graphql, actions }) => {
               slug: post.node.slug,
             },
           });
+        });
+
+        // content-pages
+        const pages = result.data.allWpPage.edges;
+        pages.forEach((page, index) => {
+          if (page?.node?.contentpage?.navmenu === "Yes") {
+            createPage({
+              path: `/${page.node.slug}/`,
+              component: contentPage,
+              context: {
+                slug: page.node.slug,
+              },
+            });
+          }
         });
       })
     );

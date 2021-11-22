@@ -38,7 +38,6 @@ const Footer = () => {
     }
   `);
   const footer = data?.footerData?.nodes[0]?.footer;
-  console.log(data);
   return (
     <>
       <div className="footer-parent">

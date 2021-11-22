@@ -14,13 +14,15 @@ const TopBanner = ({
   return (
     <div
       className={`top-banner ${type === "home" ? "home" : ""} ${
-        type === "A" ? "content-A" : ""
-      } ${type === "B" ? "content-B" : ""} ${type === "C" ? "content-C" : ""}
-      ${type === "D" ? "content-D" : ""}      
+        type === "blue" ? "content-A" : ""
+      } ${type === "purple" ? "content-B" : ""} ${
+        type === "grey" ? "content-C" : ""
+      }
+      ${type === "pink" ? "content-D" : ""}      
       `}
       id={customId}
     >
-      {type === "D" && (
+      {type === "pink" && (
         <img
           className="top-banner-typeD-mockup"
           src={frontImage}
@@ -28,7 +30,9 @@ const TopBanner = ({
         />
       )}
       <div
-        className={`top-banner-content-parent ${type === "D" ? "typeD" : ""}`}
+        className={`top-banner-content-parent ${
+          type === "pink" ? "typeD" : ""
+        }`}
       >
         <div className={type === "home" ? "headingParent" : ""}>
           {type === "home" && <img src={Snap} alt="snap-icon" />}

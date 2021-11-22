@@ -9,6 +9,7 @@ import Reviews from "../components/Reviews/reviews";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 import TryForm from "../components/TryForm/tryform";
 import Benefits from "../components/Benefits/benefits";
+import Seo from "../components/Seo/seo";
 
 const IndexPage = ({ data }) => {
   const topbanner = data?.homePost?.nodes[0]?.home?.topbannerhome;
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => {
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
   const benefits = data?.homePost?.nodes[0]?.home?.benefits;
   const form = data?.homePost?.nodes[0]?.home?.form;
+  const seo = data?.homePost?.nodes[0]?.home?.seometa;
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const blogsLatest = allblogs?.filter(
@@ -25,6 +27,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <Seo
+        title={seo?.title}
+        keywords={seo?.keywords}
+        description={seo?.description}
+      />
       <TopBanner
         type="home"
         customId="home-section-a"
@@ -82,6 +89,13 @@ export const query = graphql`
       nodes {
         home {
           fieldGroupName
+          seometa {
+            title
+            description
+            keywords {
+              word
+            }
+          }
           form {
             title
             description
