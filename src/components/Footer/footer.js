@@ -42,7 +42,11 @@ const Footer = () => {
   return (
     <>
       <div className="footer-parent">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="footer-parent-svg"
+        >
           <path
             fill="#ffffff"
             fillOpacity="1"

@@ -50,7 +50,11 @@ const TopBanner = ({
         )}
       </div>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 257">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 257"
+        className="top-banner-svg"
+      >
         <path
           fill={`${type === "home" ? "#ffffff" : "#ffffff"}`}
           fillOpacity="1"

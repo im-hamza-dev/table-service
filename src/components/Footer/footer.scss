@@ -5,6 +5,9 @@
   min-height: 300px;
   background: $bg-linear;
   margin-top: 30px;
+  .footer-parent-svg {
+    margin-top: -3px;
+  }
   .footer {
     padding: 50px 20px;
     color: $white;
