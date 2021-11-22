@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./contentrow.scss";
-import Clock from "../../assets/svg/clock.svg";
 
 const ContentRow = (props) => {
   return (
