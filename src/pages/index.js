@@ -25,7 +25,6 @@ const IndexPage = ({ data }) => {
     (item) => item?.node?.blog?.category === "Latest"
   );
 
-  console.log(data);
   return (
     <Layout>
       <Seo
