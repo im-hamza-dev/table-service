@@ -23,6 +23,7 @@ const AppHeader = () => {
     }
   `);
   const pages = data?.allWpPage?.nodes || [];
+  console.log(".");
   return (
     <Navbar className="nav-bar" expand="lg" collapseOnSelect>
       <Container fluid>
