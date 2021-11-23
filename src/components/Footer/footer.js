@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.scss";
 import { useStaticQuery, graphql } from "gatsby";
+import Link from "gatsby-link";
 import LogoFooter from "../../assets/svg/footer-icon.svg";
 import Facebook from "../../assets/svg/fb.svg";
 import Instagram from "../../assets/svg/ins.svg";
@@ -35,9 +36,21 @@ const Footer = () => {
           }
         }
       }
+      allWpPage {
+        nodes {
+          title
+          slug
+          contentpage {
+            navmenu
+            navmenuitem
+          }
+        }
+      }
     }
   `);
   const footer = data?.footerData?.nodes[0]?.footer;
+  const pages = data?.allWpPage?.nodes || [];
+
   return (
     <>
       <div className="footer-parent">
@@ -104,26 +117,17 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="footer-item">
+            <div className="footer-item width-restriction">
               <div className="footer-item-heading">Pages</div>
-              <a className="footer-item-text" href="/">
-                Who we are
-              </a>
-              <a className="footer-item-text" href="/">
-                Our Team
-              </a>
-              <a className="footer-item-text" href="/">
-                How It Works
-              </a>
-              <a className="footer-item-text" href="/">
-                Blog
-              </a>
-              <a className="footer-item-text" href="/">
-                Features
-              </a>
-              <a className="footer-item-text" href="/">
-                Pricing
-              </a>
+
+              {pages?.map(
+                (page) =>
+                  page?.contentpage?.navmenu === "Yes" && (
+                    <Link className="footer-item-text" to={`/${page?.slug}`}>
+                      {page?.contentpage?.navmenuitem}
+                    </Link>
+                  )
+              )}
             </div>
             <div className="footer-item">
               <div className="footer-item-heading">Contact Us</div>

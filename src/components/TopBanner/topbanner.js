@@ -35,7 +35,7 @@ const TopBanner = ({
         }`}
       >
         <div className={type === "home" ? "headingParent" : ""}>
-          {type === "home" && <img src={Snap} alt="snap-icon" />}
+          {/* {type === "home" && <img src={Snap} alt="snap-icon" />} */}
 
           <div
             className="top-banner-heading"
