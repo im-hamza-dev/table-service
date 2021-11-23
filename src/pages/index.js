@@ -18,13 +18,14 @@ const IndexPage = ({ data }) => {
   const reviews = data?.homePost?.nodes[0]?.home?.reviews;
   const benefits = data?.homePost?.nodes[0]?.home?.benefits;
   const form = data?.homePost?.nodes[0]?.home?.form;
-  const seo = data?.homePost?.nodes[0]?.home?.seometa;
+  const seo = data?.homePost?.nodes[0]?.home?.seometainfo;
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const blogsLatest = allblogs?.filter(
     (item) => item?.node?.blog?.category === "Latest"
   );
 
+  console.log(data);
   return (
     <Layout>
       <Seo
@@ -89,7 +90,7 @@ export const query = graphql`
       nodes {
         home {
           fieldGroupName
-          seometa {
+          seometainfo {
             title
             description
             keywords {
