@@ -62,7 +62,10 @@ exports.createPages = ({ graphql, actions }) => {
         // content-pages
         const pages = result.data.allWpPage.edges;
         pages.forEach((page, index) => {
-          if (page?.node?.contentpage?.navmenu === "Yes") {
+          if (
+            page?.node?.contentpage?.navmenu === "Yes" ||
+            page?.node?.contentpage?.navmenu === "No"
+          ) {
             createPage({
               path: `/${page.node.slug}/`,
               component: contentPage,

@@ -8,6 +8,7 @@ import Seo from "../Seo/seo";
 const ContentPage = ({ data }) => {
   const topbanner = data?.wpPage?.contentpage?.topbanner;
   const contentrows = data?.wpPage?.contentpage?.contentrows || [];
+  const button = data?.wpPage?.contentpage?.button;
   const seo = data?.wpPage?.contentpage?.seometa;
 
   return (
@@ -35,9 +36,11 @@ const ContentPage = ({ data }) => {
         ))}
 
       <div className="content-page-button-parent">
-        <a href="/" className="content-page-button">
-          TELL ME MORE
-        </a>
+        {button?.text && button?.link && (
+          <a href={button?.link} className="content-page-button">
+            {button?.text}
+          </a>
+        )}
       </div>
     </Layout>
   );
@@ -82,6 +85,10 @@ export const query = graphql`
               title
             }
           }
+        }
+        button {
+          text
+          link
         }
       }
     }
