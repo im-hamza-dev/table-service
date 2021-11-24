@@ -40,7 +40,8 @@ const AppHeader = () => {
             </Nav.Link>
             {pages?.map(
               (page) =>
-                page?.contentpage?.navmenu === "Yes" && (
+                page?.contentpage?.navmenu === "Yes" &&
+                page?.contentpage?.navmenuitem && (
                   <Nav.Link as={Link} to={`/${page?.slug}`}>
                     {page?.contentpage?.navmenuitem}
                   </Nav.Link>

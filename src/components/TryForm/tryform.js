@@ -21,6 +21,7 @@ const TryForm = (props) => {
       <div
         id="form"
         data-tf-widget="THqKGdCq"
+        data-tf-disable-auto-focus
         style={{ width: "100%", height: 500 }}
       ></div>
 

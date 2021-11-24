@@ -9,6 +9,7 @@ const Blog = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredPost, setFilteredPost] = useState([]);
   const allPosts = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  const [postCount, setPostCount] = useState(3);
   const blogpage =
     data && data.allWpPage && data.allWpPage?.nodes[0]?.bloghomepage;
 
@@ -33,7 +34,6 @@ const Blog = ({ data }) => {
   useEffect(() => {
     generateFilteredPost("All");
   }, []);
-
   return (
     <Layout>
       <Seo
@@ -93,7 +93,7 @@ const Blog = ({ data }) => {
         </div>
         <div className="blog-flex" id="list">
           {filteredPost &&
-            filteredPost?.map((item, index) => (
+            filteredPost?.slice(0, postCount)?.map((item, index) => (
               <div className="blog-item" key={`blog-${index}`}>
                 <BlogPreview
                   post={{
@@ -114,9 +114,16 @@ const Blog = ({ data }) => {
         </div>
         <br />
 
-        <a href="/blog" className="blog-button">
+        <button
+          onClick={() => {
+            if (filteredPost?.length > postCount) {
+              setPostCount(postCount + 3);
+            }
+          }}
+          className="blog-button"
+        >
           Load More
-        </a>
+        </button>
       </div>
     </Layout>
   );
