@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const blogsLatest = allblogs?.filter(
-    (item) => item?.node?.blog?.category === "Latest"
+    (item) => item?.node?.categories?.nodes[0]?.name === "Latest"
   );
 
   return (
@@ -181,11 +181,15 @@ export const BlogPreviewFields = graphql`
   fragment BlogPreviewFields2 on WpPost {
     slug
     title
+    categories {
+      nodes {
+        name
+      }
+    }
     blog {
       title
       subtitle
       description
-      category
       blogimage {
         title
         sourceUrl

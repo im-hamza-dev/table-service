@@ -9,7 +9,9 @@ const BlogTemplate = ({ data }) => {
 
   const allblogs = (data && data.allWpPost && data.allWpPost?.edges) || [];
   const relatedPost = allblogs?.filter(
-    (item) => item?.node?.blog?.category === post?.category
+    (item) =>
+      item?.node?.categories?.nodes[0]?.name ===
+      data?.wpPost?.categories?.nodes[0]?.name
   );
   return (
     <Layout>
@@ -41,7 +43,7 @@ const BlogTemplate = ({ data }) => {
                       title: item?.node?.blog?.title,
                       subtitle: item?.node?.blog?.subtitle,
                       slug: item?.node?.slug,
-                      category: item?.node?.blog?.category,
+                      category: item?.node?.categories?.nodes[0]?.name,
                     }}
                   />
                 </div>
@@ -63,11 +65,15 @@ export const pageQuery = graphql`
     wpPost(slug: { eq: $slug }) {
       slug
       title
+      categories {
+        nodes {
+          name
+        }
+      }
       blog {
         title
         subtitle
         description
-        category
         blogimage {
           title
           sourceUrl
@@ -89,11 +95,15 @@ export const BlogPreviewFields = graphql`
   fragment BlogPreviewFields3 on WpPost {
     slug
     title
+    categories {
+      nodes {
+        name
+      }
+    }
     blog {
       title
       subtitle
       description
-      category
       blogimage {
         title
         sourceUrl

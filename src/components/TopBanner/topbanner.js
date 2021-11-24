@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./topbanner.scss";
-import Snap from "../../assets/svg/snap.svg";
 
 const TopBanner = ({
   customId,

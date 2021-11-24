@@ -3,31 +3,30 @@ import "./blog.scss";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/layout";
 import BlogPreview from "../components/BlogPreview/blogpreview";
+import Seo from "../components/Seo/seo";
 
 const Blog = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredPost, setFilteredPost] = useState([]);
   const allPosts = (data && data.allWpPost && data.allWpPost?.edges) || [];
+  const blogpage =
+    data && data.allWpPage && data.allWpPage?.nodes[0]?.bloghomepage;
+
+  const categoriesPost =
+    data && data.allWpCategory && data.allWpCategory?.nodes;
 
   const highlightedPost = allPosts?.filter(
     (item) => item?.node?.blog?.highlighted === "Yes"
   );
-
-  let categoryArray = [
-    "All",
-    "Latest",
-    "News & Events",
-    "Technology",
-    "Pubs & Resturants",
-    "Festivals",
-  ];
 
   const generateFilteredPost = (item) => {
     setSelectedCategory(item);
     if (item === "All") {
       setFilteredPost(allPosts);
     } else {
-      let filtered = allPosts.filter((x) => x?.node?.blog?.category === item);
+      let filtered = allPosts.filter(
+        (x) => x?.node?.categories?.nodes[0]?.name === item
+      );
       setFilteredPost(filtered);
     }
   };
@@ -37,25 +36,31 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
+      <Seo
+        title={blogpage?.seometadata?.title}
+        keywords={blogpage?.seometadata?.keywords}
+        description={blogpage?.seometadata?.description}
+      />
       <div className="blog-parent">
-        <div className="blog-heading">OUR BLOG</div>
+        <div className="blog-heading">{blogpage?.title}</div>
         <div className="blog-buttons-flex">
-          {categoryArray.map((item, index) => (
-            <div
-              to="#list"
-              className={`blog-category-button ${
-                item === selectedCategory ? "selected" : ""
-              }`}
-              key={`category-${index}`}
-              onClick={() => {
-                document.getElementById("highlighted-desc").scrollIntoView();
+          {categoriesPost &&
+            categoriesPost?.map((item, index) => (
+              <div
+                to="#list"
+                className={`blog-category-button ${
+                  item.name === selectedCategory ? "selected" : ""
+                }`}
+                key={`category-${index}`}
+                onClick={() => {
+                  document.getElementById("highlighted-desc").scrollIntoView();
 
-                generateFilteredPost(item);
-              }}
-            >
-              {item}
-            </div>
-          ))}
+                  generateFilteredPost(item.name);
+                }}
+              >
+                {item.name}
+              </div>
+            ))}
         </div>
         <div className="blog-highlighted">
           <div className="blog-highlighted-img-parent">
@@ -96,7 +101,7 @@ const Blog = ({ data }) => {
                     title: item?.node?.blog?.title,
                     subtitle: item?.node?.blog?.subtitle,
                     slug: item?.node?.slug,
-                    category: item?.node?.blog?.category,
+                    category: item?.node?.categories?.nodes[0]?.name,
                   }}
                 />
               </div>
@@ -108,8 +113,9 @@ const Blog = ({ data }) => {
           )}
         </div>
         <br />
+
         <a href="/blog" className="blog-button">
-          LOAD MORE
+          Load More
         </a>
       </div>
     </Layout>
@@ -127,6 +133,26 @@ export const pageQuery = graphql`
         }
       }
     }
+    allWpPage(filter: { id: { eq: "cG9zdDoyNDI0" } }) {
+      nodes {
+        bloghomepage {
+          seometadata {
+            title
+            description
+            keywords {
+              word
+            }
+          }
+          title
+        }
+      }
+    }
+    allWpCategory {
+      nodes {
+        id
+        name
+      }
+    }
   }
 `;
 
@@ -134,12 +160,16 @@ export const BlogPreviewFields = graphql`
   fragment BlogPreviewFields on WpPost {
     slug
     title
+    categories {
+      nodes {
+        name
+      }
+    }
     blog {
       title
       subtitle
       highlighted
       description
-      category
       blogimage {
         title
         sourceUrl
