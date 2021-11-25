@@ -53,11 +53,14 @@
         max-height: 600px;
         border-radius: 24px;
       }
-      @media (max-width: 1350px) {
+      @media (max-width: 1370px) {
         svg {
           margin-top: -200px;
         }
       }
+    }
+    .blog-highlighted-title-parent {
+      text-decoration: none;
     }
     .blog-highlighted-title {
       font-size: 56px;
@@ -67,6 +70,9 @@
       max-width: 908px;
       margin: 0px auto 20px;
       text-align: left;
+      &:hover {
+        color: rgb(90, 88, 88);
+      }
     }
     .blog-highlighted-desc {
       font-size: 24px;
@@ -76,6 +82,10 @@
       max-width: 908px;
       margin: 0px auto 20px;
       text-align: left;
+      text-decoration: none !important;
+      &:hover {
+        text-decoration: none !important;
+      }
     }
   }
   .blog-flex {

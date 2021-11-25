@@ -6,7 +6,7 @@ import Helmet from "react-helmet";
 function SEO({ description, lang, meta, keywords, title }) {
   const metaTitle = `Table Service`;
   const metaDescription = description;
-  const metaUrl = "https://tableserviceappweb.web.app/";
+  const metaUrl = "https://www.tableserviceapp.com/";
 
   let keywordsNew = [];
   keywords?.map((word) => keywordsNew.push(word?.word));
@@ -39,6 +39,10 @@ function SEO({ description, lang, meta, keywords, title }) {
           property: `og:url`,
           content: metaUrl,
         },
+        {
+          property: `og:image`,
+          content: `https://www.tableserviceapp.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
+        },
 
         {
           name: `twitter:card`,
@@ -52,6 +56,19 @@ function SEO({ description, lang, meta, keywords, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:domain`,
+          content: `tableserviceapp.com`,
+        },
+        {
+          name: `twitter:url`,
+          content: metaUrl,
+        },
+        {
+          property: `twitter:image`,
+          content: `https://www.tableserviceapp.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
+        },
+
         {
           name: `robots`,
           content: `noindex,nofollow`,

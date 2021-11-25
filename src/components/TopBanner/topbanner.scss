@@ -70,6 +70,9 @@
       position: relative;
       .snap-img {
         background-image: url("../../assets/svg/snap.svg");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
         width: 40px;
         height: 40px;
         display: inline-block;

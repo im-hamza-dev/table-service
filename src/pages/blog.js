@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./blog.scss";
 import { graphql } from "gatsby";
+import Link from "gatsby-link";
 import Layout from "../components/Layout/layout";
 import BlogPreview from "../components/BlogPreview/blogpreview";
 import Seo from "../components/Seo/seo";
@@ -76,20 +77,24 @@ const Blog = ({ data }) => {
               ></path>
             </svg>
           </div>
-
-          <div
-            className="blog-highlighted-title"
-            dangerouslySetInnerHTML={{
-              __html: highlightedPost[0]?.node?.blog?.title,
-            }}
-          />
-          <div
-            id="highlighted-desc"
-            className="blog-highlighted-desc"
-            dangerouslySetInnerHTML={{
-              __html: highlightedPost[0]?.node?.blog?.subtitle,
-            }}
-          />
+          <Link
+            to={`/blog/${highlightedPost[0]?.node?.slug}`}
+            className="blog-highlighted-title-parent"
+          >
+            <div
+              className="blog-highlighted-title"
+              dangerouslySetInnerHTML={{
+                __html: highlightedPost[0]?.node?.blog?.title,
+              }}
+            />
+            <div
+              id="highlighted-desc"
+              className="blog-highlighted-desc"
+              dangerouslySetInnerHTML={{
+                __html: highlightedPost[0]?.node?.blog?.subtitle,
+              }}
+            />
+          </Link>
         </div>
         <div className="blog-flex" id="list">
           {filteredPost &&
