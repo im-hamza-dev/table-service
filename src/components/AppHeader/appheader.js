@@ -20,9 +20,20 @@ const AppHeader = () => {
           }
         }
       }
+      footerData: allWpPage(filter: { title: { eq: "Footer" } }) {
+        nodes {
+          footer {
+            headerbutton {
+              link
+              text
+            }
+          }
+        }
+      }
     }
   `);
   const pages = data?.allWpPage?.nodes || [];
+  const footer = data?.footerData?.nodes[0]?.footer;
   return (
     <Navbar className="nav-bar" expand="lg" collapseOnSelect>
       <Container fluid>
@@ -48,17 +59,26 @@ const AppHeader = () => {
                 )
             )}
 
-            <Nav.Link eventKey={2} as={Link} to="/" className="login-button">
-              Sign Up
-            </Nav.Link>
-            <Nav.Link
-              eventKey={3}
-              as={Link}
-              to="/"
-              className="login-button--mobile"
-            >
-              Sign Up
-            </Nav.Link>
+            {footer?.headerbutton?.text && footer?.headerbutton?.link && (
+              <Nav.Link
+                eventKey={2}
+                as={Link}
+                to={footer?.headerbutton?.link}
+                className="login-button"
+              >
+                {footer?.headerbutton?.text}
+              </Nav.Link>
+            )}
+            {footer?.headerbutton?.text && footer?.headerbutton?.link && (
+              <Nav.Link
+                eventKey={3}
+                as={Link}
+                to={footer?.headerbutton?.link}
+                className="login-button--mobile"
+              >
+                {footer?.headerbutton?.text}
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
