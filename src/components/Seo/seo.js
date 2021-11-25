@@ -41,7 +41,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:image`,
-          content: `https://www.tableserviceapp.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
+          content: `https://stagingtsanew.wpengine.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
         },
 
         {
@@ -66,7 +66,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `twitter:image`,
-          content: `https://www.tableserviceapp.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
+          content: `https://stagingtsanew.wpengine.com/wp-content/uploads/2021/11/social-tas-new-2.png`,
         },
 
         {
