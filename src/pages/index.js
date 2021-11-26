@@ -149,6 +149,10 @@ export const query = graphql`
               tab {
                 tabtitle
                 title
+                button {
+                  text
+                  link
+                }
                 description
                 points {
                   point

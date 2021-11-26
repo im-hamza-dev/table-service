@@ -26,9 +26,14 @@ const TabsServices = (props) => {
                     dangerouslySetInnerHTML={{ __html: item?.tab?.description }}
                   />
 
-                  <button className="tableservices-table-button">
-                    Join now
-                  </button>
+                  {item?.tab?.button?.link && item?.tab?.button?.text && (
+                    <a
+                      href={item?.tab?.button?.link}
+                      className="tableservices-table-button"
+                    >
+                      {item?.tab?.button?.text}
+                    </a>
+                  )}
                 </div>
                 <div className="tabsservices-table-right">
                   {item?.tab?.points?.map((point) => (
