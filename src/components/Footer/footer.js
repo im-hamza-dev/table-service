@@ -144,9 +144,11 @@ const Footer = () => {
           <hr />
           <div className="footer-row-2">
             <div className="footer-row-2-sub-flex">
-              <div>Terms of Use</div> <span> |</span>
-              <div>Terms of Service</div> <span> |</span>
-              <div>Privacy Policy</div>
+              {/* <div>Terms of Use</div> <span> |</span> */}
+              {/* <div>Terms of Service</div> <span> |</span> */}
+              <Link to="https://www.tableserviceapp.com/privacypolicy/">
+                Privacy Policy
+              </Link>
             </div>
             <div>Table Service App Limited</div>
           </div>

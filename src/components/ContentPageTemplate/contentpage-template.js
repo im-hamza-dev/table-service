@@ -18,13 +18,15 @@ const ContentPage = ({ data }) => {
         keywords={seo?.keywords}
         description={seo?.description}
       />
-      <TopBanner
-        type={topbanner?.backgroundcolor}
-        heading={topbanner?.title}
-        content={topbanner?.description}
-        buttonText={topbanner?.button?.text}
-        buttonLink={topbanner?.button?.link}
-      />
+      {topbanner?.title && topbanner?.description && (
+        <TopBanner
+          type={topbanner?.backgroundcolor}
+          heading={topbanner?.title}
+          content={topbanner?.description}
+          buttonText={topbanner?.button?.text}
+          buttonLink={topbanner?.button?.link}
+        />
+      )}
       {contentrows &&
         contentrows?.map((item, index) => (
           <ContentRow
